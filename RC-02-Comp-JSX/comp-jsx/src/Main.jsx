@@ -12,6 +12,11 @@
 
 //? CSS dosyalari import "path" seklinde eklenir.
 
+import "./Main.css";
+import catImage from "./images/IMG_7915.JPG";
+
+//? Local veya Global Style Değişkeni.
+
 const Main = () => {
   const headerStyle = {
     color: "hotpink",
@@ -24,7 +29,7 @@ const Main = () => {
       {/* Return içi JSX, return dışı ise JS alanıdır. */}
       {/* Inline CSS, (key-value), notasyon olarak camelCase */}
       <h2 style={{ color: "red", backgroundColor: "yellow" }}>MAIN SECTION</h2>
-      <p>
+      <p className="par">
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Cumque in totam
         sit nam magnam rem aperiam iure at non pariatur.
       </p>
@@ -32,6 +37,25 @@ const Main = () => {
       <p>
         Lorem, ipsum dolor sit amet consectetur adipisicing elit. Neque, atque.
       </p>
+      <div>
+        <img
+          className="img"
+          src="https://cdn.pixabay.com/photo/2022/09/02/19/55/crystal-7428278_1280.jpg"
+          alt="mashroom"
+        />
+        <img
+          className="img"
+          src="https://cdn.pixabay.com/photo/2016/10/26/22/02/dog-1772759_1280.jpg"
+          alt="dog"
+        />
+        <img
+          id="img-id"
+          src="https://cdn.pixabay.com/photo/2020/05/26/14/40/goat-5223378_1280.jpg"
+          alt="goat"
+        />
+        {/* Local ortamımızda bulunan bir resmi doğrudan patch vererek çağaramayız. Bunun yerine import yaparız. */}
+        <img className="img" src={catImage} alt="cat" />
+      </div>
     </main>
   );
 };

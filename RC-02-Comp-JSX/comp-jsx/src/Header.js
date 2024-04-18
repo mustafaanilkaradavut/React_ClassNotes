@@ -6,7 +6,8 @@ function Header() {
   return (
     <header>
       {/* JSX Alanı Yorum Satırıdır. */}
-      <h1>{yazi}</h1>
+      {/* CSS import edilmese bile burada tanımladığımız class style'ı kullanılır. */}
+      <h1 className="par">{yazi}</h1>
     </header>
   );
 }
