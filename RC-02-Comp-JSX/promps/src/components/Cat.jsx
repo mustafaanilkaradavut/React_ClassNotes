@@ -19,12 +19,14 @@ import { Name } from "./Name";
 //   );
 // };
 
-const Cat = ({ name, img, color }) => {
+const Cat = ({ name, img, color = "grey", isBlueEyed }) => {
   //!      destraction : const {name, img, color} = props
   return (
     //..        JSX ifadeleri birden fazla ise mutlaka bir parent (div) ile sarmalanmalıdır.
     <div>
       <Name name={name} />
+      //__ JSX içinde if/else kullanılamaz. Ternary kullalanmak gerekir.
+      <p>Blue eyed? : {isBlueEyed ? "Yes" : "No"} </p>
       <img src={img} alt="cat-img" height="400px" />
       <p style={{ backgroundColor: color }}> Color: {color}</p>
       <hr />
