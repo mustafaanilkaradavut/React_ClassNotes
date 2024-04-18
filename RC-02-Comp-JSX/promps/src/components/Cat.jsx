@@ -1,17 +1,32 @@
 //?     import React from "react";
 //*     React importu artık zorunda değildir. Yazmak ve yazmamak bizim tercihimizdir.
 
+//?     Named exportun importu, süslü içinde ve aynı isimde import edilmeli.
+import { Name } from "./Name";
+
 //__ Componentler function dec. veya arrow function ile oluşturulabilir.
 
-const Cat = () => {
+//!         promp ettiğimiz yöntem ;
+// const Cat = (props) => {
+//   return (
+//     //..        JSX ifadeleri birden fazla ise mutlaka bir parent (div) ile sarmalanmalıdır.
+//     <div>
+//       <Name />
+//       <img src={props.img} alt="cat-img" height="400px" />
+//       <p style={{ backgroundColor: props.color }}> Color: {props.color}</p>
+//       <hr />
+//     </div>
+//   );
+// };
+
+const Cat = ({ name, img, color }) => {
+  //!      destraction : const {name, img, color} = props
   return (
     //..        JSX ifadeleri birden fazla ise mutlaka bir parent (div) ile sarmalanmalıdır.
     <div>
-      <img
-        src="https://cdn.pixabay.com/photo/2014/11/30/14/11/cat-551554_1280.jpg"
-        alt="cat-img"
-      />
-      <p> Color: Grey</p>
+      <Name name={name} />
+      <img src={img} alt="cat-img" height="400px" />
+      <p style={{ backgroundColor: color }}> Color: {color}</p>
       <hr />
     </div>
   );
