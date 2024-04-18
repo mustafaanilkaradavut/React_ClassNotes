@@ -54,6 +54,7 @@ const Main = () => {
           alt="goat"
         />
         {/* Local ortamımızda bulunan bir resmi doğrudan patch vererek çağaramayız. Bunun yerine import yaparız. */}
+        <img className="img" src="./img/IMG_0172.JPG" alt="animal1" />
         <img className="img" src={catImage} alt="cat" />
       </div>
     </main>
