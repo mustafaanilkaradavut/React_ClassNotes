@@ -1,22 +1,32 @@
-//! mock data
 const data = [
   {
     id: 1,
-    language: "JS",
-    img: "https://upload.wikimedia.org/wikipedia/commons/thumb/9/99/Unofficial_JavaScript_logo_2.svg/512px-Unofficial_JavaScript_logo_2.svg.png",
-    btnName: "Info",
+    name: "Ayşe yılmaz",
+    job: "Developer",
+    comment: "Uygulamayı çok beğendim...",
+    img: "https://res.cloudinary.com/diqqf3eq2/image/upload/v1586883334/person-1_rfzshl.jpg",
   },
   {
     id: 2,
-    language: "CSS",
-    img: "https://upload.wikimedia.org/wikipedia/commons/thumb/6/62/CSS3_logo.svg/512px-CSS3_logo.svg.png?20210705212817",
-    btnName: "Detail",
+    name: "İsmail Can",
+    job: "Tester",
+    comment: "Uygulama çok zor.",
+    img: "https://res.cloudinary.com/diqqf3eq2/image/upload/v1586883417/person-3_ipa0mj.jpg",
   },
   {
     id: 3,
-    language: "HTML",
-    img: "https://upload.wikimedia.org/wikipedia/commons/thumb/6/61/HTML5_logo_and_wordmark.svg/512px-HTML5_logo_and_wordmark.svg.png",
-    btnName: "More",
+    name: "Canan Can",
+    job: "Grafiker",
+    comment: "Tebrikler çok başarılı",
+    img: "https://images.unsplash.com/photo-1610564558732-a36a4e28151c?ixid=MnwxMjA3fDB8MHxzZWFyY2h8N3x8cG9ydGFpdHxlbnwwfHwwfHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60",
+  },
+  {
+    id: 4,
+    name: "Tayyar Baki",
+    job: "Stajer",
+    comment: "Geliştirilmesi gerekiyor.",
+    img: "https://images.unsplash.com/photo-1552058544-f2b08422138a?ixid=MnwxMjA3fDB8MHxzZWFyY2h8Nnx8cGVyc29ufGVufDB8fDB8fA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=60",
   },
 ];
+
 export default data;
