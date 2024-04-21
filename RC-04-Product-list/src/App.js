@@ -1,8 +1,9 @@
 import Header from "./component/header/Header";
 import ProductList from "./component/products/ProductList";
+import "./App.scss";
 
 import { products, categories } from "./helper/data"; //__ Named export olduğu için süslü içinde yazarız.
-console.log(products, categories);
+// console.log(products, categories);
 
 function App() {
   return (
