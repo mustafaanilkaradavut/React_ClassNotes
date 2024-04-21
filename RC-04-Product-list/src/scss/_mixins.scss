@@ -6,3 +6,6 @@
   gap: $gap;
   flex-direction: $direction;
 }
+
+//__ Function gibi bir yapısı vardır. Mevcut kodları eğer birden fazla yerden kullanacak isek mixin işlemi yaparız.
+//__ $align: center işlemi eğer align-items itemine bir değer atanmazsa default olarak center atar.
