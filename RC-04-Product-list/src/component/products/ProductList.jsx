@@ -4,31 +4,32 @@ import "./Products.scss";
 
 //..    Buradan spreadle açarak gönderip objenin propertylerini props objesine yerleştirme.
 
-// const ProductList = ({ products }) => {
-//   console.log(products);
-//   return (
-//     <div className="products-list">
-//       {/* Spread operatörü kullanarak, ürünler dizisindeki her öğeyi props olarak ProductCard bileşenine aktarır */}
-//       {products.map((product) => (
-//         <ProductCard key={product.id} {...product} />
-//       ))}
-//     </div>
-//   );
-// };
-
-//..    Best Practice Alt Componente Gönderme.
-//?     Buradan açmadan gönderip alt componente karşılayıo içini açma.
-
 const ProductList = ({ products }) => {
   console.log(products);
+
   return (
-    <div className="product-list">
+    <div className="products-list">
+      {/* Spread operatörü ile objenin özelliklerini props olarak gönderme */}
       {products.map((product) => (
-        <ProductCard key={product.id} product={product} />
+        <ProductCard key={product.id} {...product} />
       ))}
     </div>
   );
 };
+
+//..    Best Practice Alt Componente Gönderme.
+//?     Buradan açmadan gönderip alt componente karşılayıo içini açma.
+
+// const ProductList = ({ products }) => {
+//   console.log(products);
+//   return (
+//     <div className="product-list">
+//       {products.map((product) => (
+//         <ProductCard key={product.id} product={product} />
+//       ))}
+//     </div>
+//   );
+// };
 
 //..    Yolda Destructuring yaparak kullanma.
 
