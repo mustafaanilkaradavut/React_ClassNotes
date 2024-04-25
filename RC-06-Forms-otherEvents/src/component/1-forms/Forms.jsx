@@ -28,6 +28,9 @@ function Forms() {
           type="text"
           placeholder="Enter username"
           onChange={handleUserName}
+          name="username"
+          value={username}
+          required
         />
       </Form.Group>
 
