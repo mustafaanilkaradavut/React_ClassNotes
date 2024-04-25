@@ -5,11 +5,11 @@ import Container from "react-bootstrap/Container";
 
 function App() {
   return (
-    <container className="mt-4">
+    <Container className="mt-4">
       <Forms />
-      <KeyboardClipboard />
-      <MouseEvent />
-    </container>
+      {/* <KeyboardClipboard />
+      <MouseEvent /> */}
+    </Container>
   );
 }
 
