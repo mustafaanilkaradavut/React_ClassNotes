@@ -7,9 +7,9 @@ import Container from "react-bootstrap/Container";
 function App() {
   return (
     <Container className="mt-4">
-      <FormsObject />
-      {/* <KeyboardClipboard />
-      <MouseEvent /> */}
+      {/* <FormsObject /> */}
+      <KeyboardClipboard />
+      {/* <MouseEvent /> */}
     </Container>
   );
 }

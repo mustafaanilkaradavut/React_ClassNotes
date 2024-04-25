@@ -13,7 +13,7 @@ const KeyboardClipboard = () => {
 
   const handleCopyArea = (e) => {
     alert("Bu metin kopyalanamaz");
-    e.preventDefault(); //? Kopyalama özelliğni engeledik
+    e.preventDefault(); //? Kopyalama özelliğini engeledik.
   };
 
   const handleCutArea = (e) => {
