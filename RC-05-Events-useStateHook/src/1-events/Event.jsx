@@ -17,6 +17,11 @@ const Event = () => {
   };
 
   let message = "Have a nice day FS16"; //? Local değişken. Burada'da ilk çalıştığı değer yazılır. İçeride değer değiştirildiğinde bu DOM'a yansımaz.
+
+  //? Bir componentin return kısmı 3 farkl yöntem ile yeniden render edilir .
+  //__  1-  Herhangi bir state değişirse,
+  //__  2-  Props değişirse,
+  //__  3-  Refresh force edilirse (tercih edilen bir durum olmaz.)
   return (
     <div>
       <h1>Events</h1>
