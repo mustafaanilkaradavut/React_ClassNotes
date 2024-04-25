@@ -11,7 +11,12 @@ const Event = () => {
   function handleExit(msg) {
     console.log(msg);
   }
-  const message = "Have a nice day FS16";
+
+  const handleMsgChange = function () {
+    message = "Hello friends of REACT";
+  };
+
+  let message = "Have a nice day FS16"; //? Local değişken. Burada'da ilk çalıştığı değer yazılır. İçeride değer değiştirildiğinde bu DOM'a yansımaz.
   return (
     <div>
       <h1>Events</h1>
@@ -24,8 +29,27 @@ const Event = () => {
       <button onClick={() => alert("Deleting")}>Delete</button>
 
       <button onClick={() => handleExit(message)}>Exit</button>
+
+      <button onClick={handleMsgChange}>Change</button>
+
+      <p>{message}</p>
     </div>
   );
 };
 
 export default Event;
+
+//.. "message" console'da güncellendiğini ancak DOM'da güncellenmediğini gördük.
+//* Bunun sebebi REACT'ın aksi belirtilmediği sürece elementleri static olarak kabul etmesinden kaynaklanır.
+
+//* React bunu DOM işlemlerini minimize etmk için yapmaktadır.
+//* REACT'a hangi elementlerin interaktif olduğunu belirtmek gerekir.
+//__ React'a elementlerin interaktif olduğunu belirtmek için state'ler kullanılır.
+//__ State, elementlerin değişiklik durumlarını tutan nesnelerdir.
+
+//? React Js'de stateleri kullanmak için 2 ayrı Component yapısı bulunmaktadır.
+//__    1.  Hooks   (Functional Components).
+//__    2.  Statefull Classes   (Class Components).
+
+//* Biz şu ana kadar uygulamalarımızda Fonksiyonel Component'leri kullandık.
+//* Yaygın kullanım Fonksiyonel Component'lerdir.
