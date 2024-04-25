@@ -15,8 +15,10 @@ function FormsObject() {
   const handleData = (e) => {
     // console.log(e.target.id)
     // console.log(e.target.name)
+
     //? ilgili state'i güncellenmeliyiz.
     //! Objemizin key değerinin değişken olmasını sağlamak için square bracket yöntemi ile e.target.id parametresini kullandık.
+
     setData({ ...data, [e.target.id]: e.target.value });
   };
   console.log(data);
