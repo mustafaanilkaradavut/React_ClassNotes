@@ -8,8 +8,8 @@ function App() {
   return (
     <Container className="mt-4">
       {/* <FormsObject /> */}
-      <KeyboardClipboard />
-      {/* <MouseEvent /> */}
+      {/* <KeyboardClipboard /> */}
+      <MouseEvent />
     </Container>
   );
 }
