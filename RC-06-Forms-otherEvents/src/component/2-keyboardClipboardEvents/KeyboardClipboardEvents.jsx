@@ -18,7 +18,7 @@ const KeyboardClipboard = () => {
 
   const handleCutArea = (e) => {
     alert("Bu metin kesilemez");
-    e.preventDefault(); //? Kesme özelliğni engeledik
+    e.preventDefault(); //? Kesme özelliğni engelledik.
   };
 
   const handlePasteArea = (e) => {
