@@ -33,7 +33,15 @@ const UseStateObject = () => {
     surname: "Atakişi",
     job: "Tester",
     salary: 50000,
+    mood: "Happy",
   });
+
+  const [toogle, setToogle] = useState(true); //__ Değeri her bastığımızda değiştirmek için yeni bir değer oluşturduk.
+
+  const handleMood = () => {
+    setPerson({ ...person, mood: toogle ? "Sad" : "Happy" }); //__ Mood'a değer aktar. Sad varsa happy, happy varsa sad aktar.
+    setToogle(!toogle); //__ Toogle'ın değerini terse döndürüp yazdır demek.
+  };
 
   return (
     <>
@@ -43,6 +51,7 @@ const UseStateObject = () => {
       <h2>Surname:{person.surname}</h2>
       <h2>Job:{person.job}</h2>
       <h2>Salary:{person.salary}</h2>
+      <h3>Mood:{person.mood}</h3>
 
       <button onClick={() => setPerson({ ...person, name: "Anil" })}>
         Change Name
@@ -61,6 +70,7 @@ const UseStateObject = () => {
         onClick={() => setPerson({ ...person, salary: person.salary - 1000 })}>
         Salary Down
       </button>
+      <button onClick={handleMood}>Happy/Sad</button>
     </>
   );
 };
