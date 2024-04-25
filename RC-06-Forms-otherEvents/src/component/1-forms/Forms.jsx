@@ -17,8 +17,31 @@ function Forms() {
   //    __      State her güncellendikten sora component re-render olur ve değişen kısımlar DOM'a basılır.
   console.log(username);
 
+  const handleSubmit = (e) => {
+    console.log(e);
+    e.preventDefault(); //  __  Submit eventi'nin doğal davranışlarını engeller.
+
+    alert(`
+    username:${username}
+    email:${email}
+    password:${password}
+    `);
+
+    //  __  Post yapıldıktan sonra State'lerdeki verilerin silinmesi.
+    setEmail("");
+    setPassword("");
+    setUsername("");
+  };
+
+  //.. İleride bir submit işleminin neticesinde verilerin nasıl post edilebileceğini göstermek adına eklenmiştir.
+  // const res = axios.post("url", {
+  //   username: username,
+  //   email: email,
+  //   password: password,
+  // })
+
   return (
-    <Form>
+    <Form onSubmit={handleSubmit}>
       <h1 className="text-danger">FORMS</h1>
 
       <Form.Group className="mb-3" controlId="username">
@@ -35,14 +58,28 @@ function Forms() {
       </Form.Group>
 
       <Form.Group className="mb-3" controlId="email">
-        <Form.Label>Email address</Form.Label>
-        <Form.Control type="email" placeholder="Enter email" />
+        <Form.Label>Email</Form.Label>
+        <Form.Control
+          type="email"
+          placeholder="Enter email"
+          onChange={(e) => setEmail(e.target.value)}
+          //  __      OnChange event'i input değeri her değiştiğinde tetiklenir. Bizde yazdığımız event handler aracılığı ile State'i güncelleyebiliriz.
+          name="email"
+          value={email}
+        />
       </Form.Group>
 
       <Form.Group className="mb-3" controlId="password">
         <Form.Label>Password</Form.Label>
-        <Form.Control type="password" placeholder="Enter Password" />
+        <Form.Control
+          type="password"
+          placeholder="Enter Password"
+          onChange={(e) => setPassword(e.target.value)}
+          name="password"
+          value={password}
+        />
       </Form.Group>
+
       <Button variant="danger" type="submit">
         Submit
       </Button>
