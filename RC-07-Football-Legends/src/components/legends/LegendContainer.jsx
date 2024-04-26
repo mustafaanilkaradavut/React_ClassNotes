@@ -1,24 +1,24 @@
 import { useState } from "react";
-import { Col, Container, Row } from "react-bootstrap"; //!yazım olarak daha kullanışlı ama performans açısından üstteki yöntem daha ideal
+import { Col, Container, Row } from "react-bootstrap"; //__ yazım olarak daha kullanışlı ama performans açısından üstteki yöntem daha ideal
 import Card from "react-bootstrap/Card";
 import Form from "react-bootstrap/Form";
 import { data } from "../../helpers/data";
 import LegendCard from "./LegendCard";
 
-const LegendContainer = () => {
-  //   const [show, setShow] = useState(false);//! Parent componentte tanımladığımızda state 1 tane olmuş oluyor. Tek bir state ile tüm veriyi yönetmeye çalışınca da hata alıyoruz. O yüzden her bir veri için state tanımlamamaız gerekiyor. Bunun için de verileri bir component içerisinde yazdırmış olduk.
+const LegendContainer = (e) => {
+  //   const [show, setShow] = useState(false); //__ Parent componentte tanımladığımızda state 1 tane olmuş oluyor. Tek bir state ile tüm veriyi yönetmeye çalışınca da hata alıyoruz. O yüzden her bir veri için state tanımlamamaız gerekiyor. Bunun için de verileri bir component içerisinde yazdırmış olduk.
   const [search, setSearch] = useState("");
   //   console.log(data);
   const handleChange = (e) => {
     console.log("first", e.target.value);
-    setSearch(e.target.value); //!setter metodu her zaman asenkron çalışır.
+    setSearch(e.target.value); //__ setter metodu her zaman asenkron çalışır.
     // console.log(search)
     // if(e.target.value)
   };
-  console.log("second", search);
+  //   console.log("second", search);
 
   const filteredData = data.filter((item) =>
-    item.name.toLowerCase().includes(search.trim().toLowerCase())
+    item.name.toLowerCase(e).includes(search.trim().toLowerCase())
   );
   console.log(filteredData);
   return (
@@ -50,7 +50,7 @@ const LegendContainer = () => {
 export default LegendContainer;
 
 // import { useState } from "react";
-// import { Col, Container, Row } from "react-bootstrap"; //!yazım olarak daha kullanışlı ama performans açısından üstteki yöntem daha ideal
+// import { Col, Container, Row } from "react-bootstrap"; //__ yazım olarak daha kullanışlı ama performans açısından üstteki yöntem daha ideal.
 // import Card from "react-bootstrap/Card";
 // import Form from "react-bootstrap/Form";
 // import { data } from "../../helpers/data";
