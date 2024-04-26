@@ -18,7 +18,7 @@ body {
   background-color: rgba(250, 251, 251, 0.5);
   padding: 5px;
   border-radius: 1rem;
-  display: inline-block;
+  display: inline-block;  /*__ Arka planın yazı kadar olması için yaparız. */
 }
 
 .card-container {
