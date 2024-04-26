@@ -15,7 +15,7 @@ const LegendContainer = (e) => {
     // console.log(search)
     // if(e.target.value)
   };
-  //   console.log("second", search);
+  console.log("second", search);
 
   const filteredData = data.filter((item) =>
     item.name.toLowerCase(e).includes(search.trim().toLowerCase())

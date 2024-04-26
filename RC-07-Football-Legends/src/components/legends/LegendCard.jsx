@@ -26,8 +26,11 @@ const LegendCard = ({ legend }) => {
               <Card.Title>{legend.name}</Card.Title>
             </Card.Header>
             <ul className="m-auto">
-              {legend.statistics.map((item) => (
-                <li className="list-unstyled h5 text-start"> ⚽ {item}</li>
+              {legend.statistics.map((item, index) => (
+                <li key={index} className="list-unstyled h5 text-start">
+                  {" "}
+                  ⚽ {item}
+                </li>
               ))}
             </ul>
             <span>{legend.official_career}</span>
@@ -40,7 +43,7 @@ const LegendCard = ({ legend }) => {
 
 export default LegendCard;
 
-//! Propsu yorumdaki yöntemlerle gönderirsek aşağıdaki şekilde karşılama yapabiliriz.
+//__ Propsu yorumdaki yöntemlerle gönderirsek aşağıdaki şekilde karşılama yapabiliriz.
 // import {useState} from "react"
 // import { Col, Container, Row } from "react-bootstrap";
 // import Card from "react-bootstrap/Card";
