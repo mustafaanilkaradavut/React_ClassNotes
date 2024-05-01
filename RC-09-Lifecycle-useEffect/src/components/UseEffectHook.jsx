@@ -1,6 +1,7 @@
-//?===============================================
-//?                USEEFFECT HOOK
-//?===============================================
+/* -------------------------------------------------------------------------- */
+//..                             USEEFFECT HOOK                               */
+/* -------------------------------------------------------------------------- */
+
 //! UseEffect Hook'u fonksiyonel componentler'te yan etkileri
 //! (side effect) gerceklestirmek icin kullanilir.
 //! componentDidMount,componentDidUpdate,ve componentWillUnmount
