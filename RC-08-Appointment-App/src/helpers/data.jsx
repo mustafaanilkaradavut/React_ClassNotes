@@ -18,7 +18,7 @@ export const appointmentData = [
     customer: "Elisa Daniel",
     day: new Date(),
     process: true,
-    artist: "Sammy Goohr",
+    artist: "Sammy Gooh",
   },
 ];
 
