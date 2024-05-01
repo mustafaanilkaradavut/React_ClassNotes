@@ -7,6 +7,7 @@ import { useState } from "react";
 const Artist = () => {
   // console.log(artistData);
   const [showModal, setShow] = useState(false);
+  const [artistName, setArtistName] = useState("");
 
   return (
     <Container>
@@ -28,14 +29,21 @@ const Artist = () => {
               className=" align-item-center artist-img w-100"
               src={img}
               alt={name}
-              onClick={() => setShow(true)}
+              onClick={() => {
+                setShow(true);
+                setArtistName(name);
+              }}
             />
             <h5>{name}</h5>
             <p>{area}</p>
           </Col>
         ))}
       </Row>
-      <AddModal showModal={showModal} handleClose={() => setShow(false)} />
+      <AddModal
+        showModal={showModal}
+        handleClose={() => setShow(false)}
+        artistName={artistName}
+      />
     </Container>
   );
 };
