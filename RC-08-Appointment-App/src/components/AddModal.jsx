@@ -8,7 +8,7 @@ function AddModal({ showModal, handleClose, artistName, addAppointment }) {
   console.log(
     "Appointments güncellendi Home Componenti render olduğu için Artist Componenti render olduğu için AddModal render oldu."
   );
-  // console.log("showModal güncellendi Doctors Componenti render olduğu için AddModal render oldu.")
+  // console.log("showModal güncellendi Artist Componenti render olduğu için AddModal render oldu.")
   //   const handleClose = () => setShow(false);
   //   const handleShow = () => setShow(true);
   const [customerName, setCustomerName] = useState("");
@@ -27,10 +27,10 @@ function AddModal({ showModal, handleClose, artistName, addAppointment }) {
 
     addAppointment({
       id: crypto.randomUUID(), //? crypto.randomUUID() metodu her çağırıldığında farklı, unique karakter dizisi dönüyor. Id değeri bize update-delete işlemleri için lazım olacak ve işimizi kolaylaştıracak.
-      patient: customerName,
+      customer: customerName,
       day: date,
-      consulted: false, //? default olarak false yapmış olduk
-      doctor: artistName, //__ tTıklanılan doktoru yukarıda yakalamıştık burada da kullanıyoruz.
+      process: false, //? default olarak false yapmış olduk
+      artist: artistName, //__ tTıklanılan artisti yukarıda yakalamıştık burada da kullanıyoruz.
     });
     setCustomerName(""); //__ input alanlarını temizlemek için kullanılan fonksiyon.
     setDate("");

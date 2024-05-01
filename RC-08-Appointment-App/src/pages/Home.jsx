@@ -1,21 +1,21 @@
 import { useState } from "react";
 import AppointmentList from "../components/AppointmentList";
-import Doctors from "../components/Artists";
-// import { appointmentData } from "../helpers/data"
+import Artist from "../components/Artists";
+// import { appointmentData } from "../helpers/data";
 
-// let todos = JSON.parse(localStorage.getItem("appointments")) || []
+//__ let todos = JSON.parse(localStorage.getItem("appointments")) || []
 
 const Home = () => {
   const [appointments, setAppointments] = useState(
     JSON.parse(localStorage.getItem("appointments")) || []
-  ); //* statein intial değerine localde varsa o değeri ata demiş olduk.
+  ); //__ statein intial değerine localde varsa o değeri ata demiş olduk.
   // console.log(appointments);
   // console.log("Buildde gözükmeyecek")
   console.log("Appointments güncellendi Home Componenti render oldu.");
   return (
     <main className="text-center mt-2">
       <h1 className="display-5 text-danger">CLARUS HOSPITAL</h1>
-      <Doctors setApps={setAppointments} apps={appointments} />
+      <Artist setApps={setAppointments} apps={appointments} />
       <AppointmentList apps={appointments} setApps={setAppointments} />
     </main>
   );

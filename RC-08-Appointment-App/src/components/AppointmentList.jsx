@@ -8,7 +8,7 @@ import { addLocal } from "../helpers/utils";
 const AppointmentList = ({ apps, setApps }) => {
   const handleDelete = (id) => {
     // setApps(apps?.filter(appo=> appo.id !== id)) //* setter asenkron çalışır
-    // localStorage.setItem("appointments",JSON.stringify(apps)) // setter asenkron olduğu için geriden gelir.
+    // localStorage.setItem("appointments",JSON.stringify(apps)) //* setter asenkron olduğu için geriden gelir.
     console.log(
       "Appointments güncellendi Home Componenti render olduğu için AppointmentList Componenti render oldu."
     );
@@ -24,7 +24,7 @@ const AppointmentList = ({ apps, setApps }) => {
       appo.id === id ? { ...appo, process: !appo.process } : appo
     );
     setApps(newAppo);
-    // localStorage.setItem("appointments",JSON.stringify(newAppo))
+    localStorage.setItem("appointments", JSON.stringify(newAppo));
     addLocal("appointments", newAppo);
   };
   return (

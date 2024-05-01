@@ -3,6 +3,7 @@ import { Row, Col, Image } from "react-bootstrap";
 import { artistData } from "../helpers/data";
 import AddModal from "./AddModal";
 import { useState } from "react";
+import { addLocal } from "../helpers/utils";
 
 const Artist = ({ apps, setApps }) => {
   // console.log(artistData);
@@ -10,8 +11,9 @@ const Artist = ({ apps, setApps }) => {
   const [artistName, setArtistName] = useState("");
 
   // const handleClose = () => setShow(false);
-  const addAppointment = (newApp) => {
-    setApps([...apps, newApp]);
+  const addAppointment = (newAppo) => {
+    setApps([...apps, newAppo]);
+    addLocal("appointments", [...apps, newAppo]);
   };
 
   return (
