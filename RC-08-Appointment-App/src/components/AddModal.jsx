@@ -1,50 +1,61 @@
-import Button from "react-bootstrap/Button";
-import Modal from "react-bootstrap/Modal";
-import Form from "react-bootstrap/Form";
 import { useState } from "react";
+import Button from "react-bootstrap/Button";
+import Form from "react-bootstrap/Form";
+import Modal from "react-bootstrap/Modal";
 
 function AddModal({ showModal, handleClose, artistName, addAppointment }) {
-  //   const [show, setShow] = useState(false);
-  //   const [showModal, setShow] = useState(false);
-  //__ Modalı resimlere tıklanıldğında açtırmak isteğimiz için show state'ini resimlerin olduğu yerde manipüle edebilmemiz lazım. Eğer state'i burada oluşturursam setShow'u resimlerin olduğu üst componente gönderemem o nedenle Liting State Up yaparak show stateini resimlerin olduğu üst componente taşıdık.
+  //   const [showModal, setShow] = useState(false); //! Modalı resimlere tıklanıldğında açtırmak isteğidğim için show stateini resimlerin olduğu yerde manipüle edebilmem lazım. Eğer statei burada oluşturursam setShowu resimlerin olduğu üst componente gönderemem o nedenle Liting State Up yaparak show stateini resimlerin olduğu üst componente taşıdık.
+  console.log(
+    "Appointments güncellendi Home Componenti render olduğu için Artist Componenti render olduğu için AddModal render oldu."
+  );
+  // console.log("showModal güncellendi Doctors Componenti render olduğu için AddModal render oldu.")
   //   const handleClose = () => setShow(false);
   //   const handleShow = () => setShow(true);
-
   const [customerName, setCustomerName] = useState("");
   const [date, setDate] = useState("");
-  // console.log(crypto.randomUUID());   //? JS'nin bize sunmuş olduğu özel ID'lerdir.
-
+  // console.log(crypto.randomUUID());
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log({ customerName, date, artistName });
+    // addAppointment({
+    //   id: new Date().getTime(),
+    //   patient: patientName,
+    //   day: date,
+    //   consulted: false,
+    //   doctor: drName,
+    // });
+
     addAppointment({
-      id: crypto.randomUUID,
-      customer: customerName,
+      id: crypto.randomUUID(), //? crypto.randomUUID() metodu her çağırıldığında farklı, unique karakter dizisi dönüyor. Id değeri bize update-delete işlemleri için lazım olacak ve işimizi kolaylaştıracak.
+      patient: customerName,
       day: date,
-      process: false,
-      artist: artistName,
+      consulted: false, //? default olarak false yapmış olduk
+      doctor: artistName, //__ tTıklanılan doktoru yukarıda yakalamıştık burada da kullanıyoruz.
     });
+    setCustomerName(""); //__ input alanlarını temizlemek için kullanılan fonksiyon.
+    setDate("");
+    handleClose(); //__ İşlem başarılı bittiğinde modalı kapatması için kullanılan fonksiyon.
   };
 
   return (
     <>
-      <Modal show={showModal} onHide={handleClose} size={"m"}>
+      <Modal show={showModal} onHide={handleClose} size={"lg"}>
         <Modal.Header closeButton>
-          <Modal.Title>Appointment for: {artistName}</Modal.Title>
+          <Modal.Title>Appointment for : {artistName} </Modal.Title>
         </Modal.Header>
         <Modal.Body>
           <Form onSubmit={handleSubmit}>
-            <Form.Group className="mb-3" controlId="formBasicEmail">
+            <Form.Group className="mb-3" controlId="formBasicText">
               <Form.Label>Customer Name</Form.Label>
               <Form.Control
                 type="text"
                 placeholder="Enter Customer Name"
                 onChange={(e) => setCustomerName(e.target.value)}
-                value={customerName}
+                value={customerName} //__ inputun içini yönetebilmek için value attributeını kullanıyoruz. Statei  güncellediğimizde inputun içi de statein değerini almış oluyor.
               />
             </Form.Group>
 
-            <Form.Group className="mb-3" controlId="formBasicPassword">
+            <Form.Group className="mb-3" controlId="formBasicDate">
               <Form.Label>Date</Form.Label>
               <Form.Control
                 type="datetime-local"
@@ -63,7 +74,6 @@ function AddModal({ showModal, handleClose, artistName, addAppointment }) {
             </div>
           </Form>
         </Modal.Body>
-        <Modal.Footer></Modal.Footer>
       </Modal>
     </>
   );

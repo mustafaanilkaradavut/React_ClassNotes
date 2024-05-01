@@ -4,10 +4,10 @@ import Row from "react-bootstrap/Row";
 import { TiDelete, TiTick } from "react-icons/ti";
 import { addLocal } from "../helpers/utils";
 
-//! ?. => optional chaining
+//.. ?. => optional chaining
 const AppointmentList = ({ apps, setApps }) => {
   const handleDelete = (id) => {
-    // setApps(apps?.filter(appo=> appo.id !== id)) //* settter asenkron çalışır
+    // setApps(apps?.filter(appo=> appo.id !== id)) //* setter asenkron çalışır
     // localStorage.setItem("appointments",JSON.stringify(apps)) // setter asenkron olduğu için geriden gelir.
     console.log(
       "Appointments güncellendi Home Componenti render olduğu için AppointmentList Componenti render oldu."
