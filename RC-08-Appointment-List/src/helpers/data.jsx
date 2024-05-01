@@ -4,27 +4,23 @@ export const appointmentData = [
     customer: "Timmy Donaldson",
     day: new Date(),
     process: true,
-    artist: "Prof. Akari Yoshino",
+    artist: "Yasmin Vermeda",
   },
   {
     id: 2,
     customer: "Bobbie Martel",
     day: new Date(),
     process: false,
-    artist: "Prof. Dr. Theodor Jackson",
+    artist: "Paye Allien",
   },
   {
     id: 3,
     customer: "Elisa Daniel",
     day: new Date(),
     process: true,
-    artist: "Dr. Jasmine Carpanter",
+    artist: "Sammy Goohr",
   },
 ];
-
-//__ Buradaki dataları public dosyasına koyma sebebimiz img gibi static verilerimizi aşağıdaki gibi yazabiliriz.
-//__ Aynı zamanda projemizi build dediğimiz zaman, public'de olan dosyalarımız image klasörümüz src klasörleri ile aynı yere gelecektir.
-//.. Burada named export yapılmıştır. Çünkü sayfa üzerinde 2 tane export ögesi bulunur. Default bir kere yapılır.
 
 export const artistData = [
   {
@@ -76,3 +72,7 @@ export const artistData = [
     img: "./img/imgw4.webp",
   },
 ];
+
+//__ Buradaki dataları public dosyasına koyma sebebimiz img gibi static verilerimizi aşağıdaki gibi yazabiliriz.
+//__ Aynı zamanda projemizi build dediğimiz zaman, public'de olan dosyalarımız image klasörümüz src klasörleri ile aynı yere gelecektir.
+//.. Burada named export yapılmıştır. Çünkü sayfa üzerinde 2 tane export ögesi bulunur. Default bir kere yapılır.
