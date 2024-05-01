@@ -4,10 +4,15 @@ import { artistData } from "../helpers/data";
 import AddModal from "./AddModal";
 import { useState } from "react";
 
-const Artist = () => {
+const Artist = ({ apps, setApps }) => {
   // console.log(artistData);
   const [showModal, setShow] = useState(false);
   const [artistName, setArtistName] = useState("");
+
+  // const handleClose = () => setShow(false);
+  const addAppointment = (newApp) => {
+    setApps([...apps, newApp]);
+  };
 
   return (
     <Container>
@@ -43,6 +48,7 @@ const Artist = () => {
         showModal={showModal}
         handleClose={() => setShow(false)}
         artistName={artistName}
+        addAppointment={addAppointment}
       />
     </Container>
   );
