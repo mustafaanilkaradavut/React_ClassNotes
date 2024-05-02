@@ -1,4 +1,6 @@
 import { useState } from "react";
+import "bootstrap/dist/css/bootstrap.min.css";
+
 // import LifeCycleMethods from "./components/LifeCycleMethods";
 // import UseEffectHook from "./components/UseEffectHook";
 

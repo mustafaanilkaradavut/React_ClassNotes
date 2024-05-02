@@ -15,7 +15,7 @@ function Forms() {
   };
 
   //    __      State her güncellendikten sora component re-render olur ve değişen kısımlar DOM'a basılır.
-//   console.log(username);
+  //   console.log(username);
 
   const handleSubmit = (e) => {
     console.log(e);
