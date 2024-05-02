@@ -13,20 +13,20 @@ const User = () => {
   const getUser = async () => {
     const res = await fetch("https://randomuser.me/api/");
     const data = await res.json();
-    setUserData(data.results[0]);
+    setUserData(data.results[0]); //__ getUser güncellemiş oluruz.
   };
 
   //?         componentDidMount + componentWillUnmount
   useEffect(() => {
-    //* bu kısım ilk render sonrasi bir kere calisir.
-    const timerID = setInterval(getUser, 5000);
+    //* bu kısım ilk render sonrası bir kere çalışır.
+    const timerID = setInterval(getUser, 5000); //__ 5 saniye'de bir bize yeni bir veri getirmesi.
     getUser();
 
     //?        componentWillUnmount
     return () => {
-      //?* bu kısım da component DOM'Dan kaldırıldıgında bir kere calirsir.
+      //?* Bu kısım da component DOM'Dan kaldırıldığında bir kere çalışır.
       console.log("Timer iptal edildi.");
-      clearInterval(timerID);
+      clearInterval(timerID); //__ Uygulama iptali sonrası otomatik veri akışının arka planda akışını durdurur.
     };
   }, []); //?             depedency array
 
@@ -41,7 +41,7 @@ const User = () => {
       <h6>{userData.cell}</h6>
 
       <button className="btn btn-warning" onClick={getUser}>
-        new user
+        New User
       </button>
     </div>
   );
