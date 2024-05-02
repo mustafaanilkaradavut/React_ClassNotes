@@ -6,6 +6,8 @@ import axios from "axios";
 const Home = () => {
   const [tutorials, setTutorials] = useState([]);
 
+  //!      Lifting State Up     !!
+
   const getTutorials = async () => {
     // const URL = "https://tutorial-api.fullstack.clarusway.com/tutorials/"
     try {
