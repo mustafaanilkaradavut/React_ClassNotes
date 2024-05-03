@@ -5,10 +5,10 @@ const AddTutorial = ({ getTutorials }) => {
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
 
+  //? key ve değişken aynı ise title : title yazmak anlamsız oluyor. Eğer key value aynı ise böyle yazarız.
   const handleSubmit = (e) => {
     e.preventDefault(); //__ Sayfa yenilenmesini önlemek için girdik.
     const newTutor = { title, description };
-    //? key ve değişken aynı ise title : title yazmak anlamsız oluyor. Eğer key value aynı ise böyle yazarız.
     postTutorial(newTutor);
     setTitle("");
     setDescription("");
