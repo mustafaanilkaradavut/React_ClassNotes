@@ -19,7 +19,7 @@ const Home = () => {
     }
   };
 
-  //? componentDidMount (ilk render sonrasi bir kere istek gonder)
+  //? componentDidMount (ilk render sonrası bir kere istek göndeririz.)
   useEffect(() => {
     getTutorials();
   }, []);
