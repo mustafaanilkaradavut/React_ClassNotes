@@ -1,14 +1,14 @@
 import { useState, useEffect } from "react";
+import axios from "axios";
 
 //? https://react.dev/reference/react/useState#usestate
 //__        State değişkeninin değeri, 1.render ile initialState parametresinin ilk değerini alır.
 //__        Dolayisiyle bu durumda prop'tan gelen ilk değer state'e aktarılır.
 
-//__ Sonradan değişen props değerleri useState'e aktarılmaz.
-//__ Eğer props'tan gelen değerleri her değişimde useState'e aktarmak istersek useEffect hook'unu componentDiUpdate gibi kullanabiliriz.
+//__        Sonradan değişen props değerleri useState'e aktarılmaz.
+//__        Eğer props'tan gelen değerleri her değişimde useState'e aktarmak istersek useEffect hook'unu componentDiUpdate gibi kullanabiliriz.
 
-
-const EditModal = ({ editData }) => {
+const EditModal = ({ editData, getTutorials }) => {
   console.log(editData);
 
   const [title, setTitle] = useState(editData.title);
@@ -20,12 +20,20 @@ const EditModal = ({ editData }) => {
     setDescription(editData.description);
   }, [editData]);
 
+  const editTutorial = async (tutorial) => {
+    try {
+      // await axios.put(`${process.env.REACT_APP_URL}${editData.id}/`, { title, description });
+      await axios.put(`${process.env.REACT_APP_URL}${editData.id}/`, tutorial);  //? Update data
+      getTutorials();
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   const handleSubmit = (e) => {
     e.preventDefault();
-    // const newTutor = { title, description }
-    // postTutorial(newTutor)
-    // setTitle("")
-    // setDescription("")
+    const newTutor = { title, description };
+    editTutorial(newTutor);
   };
 
   console.log(title);
@@ -82,7 +90,10 @@ const EditModal = ({ editData }) => {
                   />
                 </div>
                 <div className="d-flex justify-content-center align-items-center gap-2">
-                  <button type="submit" className="btn btn-danger ">
+                  <button
+                    type="submit"
+                    className="btn btn-danger "
+                    data-bs-dismiss="modal">
                     Submit
                   </button>
                   <button className="btn btn-secondary" data-bs-dismiss="modal">
