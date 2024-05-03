@@ -4,10 +4,9 @@ import { useState, useEffect } from "react";
 //__        State değişkeninin değeri, 1.render ile initialState parametresinin ilk değerini alır.
 //__        Dolayisiyle bu durumda prop'tan gelen ilk değer state'e aktarılır.
 
-//! Sonradan degisen props degerleri useState'e aktarilmaz.
-//! Eger props'tan gelen degerleri her degisimde useState'e
-//! aktarmak istersek useEffect hook'unu componentDidUpdate
-//! gibi kullanabiriz.
+//__ Sonradan değişen props değerleri useState'e aktarılmaz.
+//__ Eğer props'tan gelen değerleri her değişimde useState'e aktarmak istersek useEffect hook'unu componentDiUpdate gibi kullanabiliriz.
+
 
 const EditModal = ({ editData }) => {
   console.log(editData);
