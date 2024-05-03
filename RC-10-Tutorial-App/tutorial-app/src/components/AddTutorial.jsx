@@ -8,6 +8,7 @@ const AddTutorial = ({ getTutorials }) => {
   const handleSubmit = (e) => {
     e.preventDefault();
     const newTutor = { title, description };
+    //? key ve değişken aynı ise title : title yazmak anlamsız oluyor. Eğer key value aynı ise böyle yazarız.
     postTutorial(newTutor);
     setTitle("");
     setDescription("");
