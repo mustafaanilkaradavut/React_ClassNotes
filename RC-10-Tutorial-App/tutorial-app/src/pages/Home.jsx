@@ -24,11 +24,12 @@ const Home = () => {
     getTutorials();
   }, []);
 
+  //__ Buradaki ilk tutorials bizim json'u oluşturur. Verileri bizim için
+  //__ çeker ve bizde MOCK data işevi görür.
   return (
     <>
       <AddTutorial getTutorials={getTutorials} />
       <TutorialList tutorials={tutorials} getTutorials={getTutorials} />
-      //__ Buradaki ilk tutorials bizim json'u oluşturur. Verileri bizim için çeker ve bizde MOCK data işevi görür.
     </>
   );
 };
