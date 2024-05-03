@@ -23,7 +23,7 @@ const EditModal = ({ editData, getTutorials }) => {
   const editTutorial = async (tutorial) => {
     try {
       // await axios.put(`${process.env.REACT_APP_URL}${editData.id}/`, { title, description });
-      await axios.put(`${process.env.REACT_APP_URL}${editData.id}/`, tutorial);  //? Update data
+      await axios.put(`${process.env.REACT_APP_URL}${editData.id}/`, tutorial); //? Update data
       getTutorials();
     } catch (error) {
       console.log(error);
