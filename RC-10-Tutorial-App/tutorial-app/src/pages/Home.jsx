@@ -7,7 +7,7 @@ const Home = () => {
   const [tutorials, setTutorials] = useState([]);
 
   //!      Lifting State Up     !!
-
+  //__      axios kullanırız.
   const getTutorials = async () => {
     // const URL = "https://tutorial-api.fullstack.clarusway.com/tutorials/"
     try {
