@@ -18,5 +18,8 @@ const Nav = () => {
   );
 };
 
+//__ Buradaki etiketler a etiketi ile kullanırsak sayfa sürekli reflesh olur. Bu bizim istemediğimiz bir durumdur.
+//__ Sayfanın reflesh olmaması ve hızlı aksiyon için <NavLink> </NavLink> kullanırız.
+//__ Server'dan Client'a çekerek hızlı bir şekilde surfing yaparız.
 
 export default Nav;
