@@ -22,4 +22,6 @@ const Nav = () => {
 //__ Sayfanın reflesh olmaması ve hızlı aksiyon için <NavLink> </NavLink> kullanırız.
 //__ Server'dan Client'a çekerek hızlı bir şekilde surfing yaparız.
 
+//__ Link ve NavLink arasındaki fark ise NavLink mevcut bağlantıya "active" adına bir class verir. Buda bizim ilgili bağlantı ile alakalı css kodları yazmamızı sağlar.
+
 export default Nav;
