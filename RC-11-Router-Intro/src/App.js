@@ -14,7 +14,7 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/instructors" element={<Instructors />} />
         <Route path="/contact" element={<Contact />} />
-        <Route path="*" element={<NotFound />} />
+        <Route path="*" element={<NotFound />} /> //__ "*" yazarsak bunlar haricinde bir veri gelirse uygulanacak componenti gösterir.
       </Routes>
 
       <Footer />
@@ -23,3 +23,5 @@ function App() {
 }
 
 export default App;
+
+//? Routes ile biz değişecek olanları bu alan içerisine alırız. Nav ve Footer her sayfada gözükeceği için bu alanın dışında yazılmalıdır.

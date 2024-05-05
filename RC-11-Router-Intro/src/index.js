@@ -10,3 +10,5 @@ root.render(
   <App />
   //   </BrowserRouter>
 );
+
+//__ Bu şekilde App.js'ye çıkarak tamamını kapsayan bir şekilde yapabilir. Yahut App.js'de tanımlayabiliriz.
