@@ -29,13 +29,13 @@ function App() {
 
         {/* People sayfası public olsun ancak PersonDetail sayfası protected olsun  */}
         <Route path="/people" element={<People />} />
-
+        {/* //.. people/:id yazmamızdaki sebep buaradaki ":" bize dinamikliği verir.  */}
         <Route path="/people/:id" element={<PrivateRouter />}>
           <Route path="" element={<PersonDetail />} />
         </Route>
 
         <Route path="/contact" element={<Contact />} />
-        {/* Path route'nun içersinde başka alt route'lar olabilir */}
+        {/* //__ Path route'nun içersinde başka alt route'lar olabilir */}
         <Route path="/paths" element={<Paths />}>
           <Route index path="" element={<FS />} />
           <Route path="aws" element={<AWS />}>

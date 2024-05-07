@@ -1,9 +1,9 @@
 import { useState, useEffect } from "react";
-import { useNavigate, Link } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom"; //?    1. İşlem
 
 const People = () => {
   const [people, setPeople] = useState([]);
-  const navigate = useNavigate();
+  const navigate = useNavigate(); //?   2. İşlem atama yaparız.
 
   const getPeople = () => {
     fetch("https://reqres.in/api/users")
@@ -32,6 +32,7 @@ const People = () => {
               onClick={() => navigate(`${id}`)}>
               {" "}
               {/* //__ kişi click edildiğinde yeni sayfaya gönlendiririz. */}
+              {/* //! onClick içerisinde yani JS içerisinde bir component çağıralamaz. O yüzden Link kullanamayız ! */}
               <img className="rounded" src={avatar} alt="img" />
               <h6>
                 {first_name} {last_name}

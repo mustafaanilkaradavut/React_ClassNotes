@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { useNavigate, useParams } from "react-router-dom";
+//__ useParams personalDetail kısmındaki componentte id'yi yakalar ve döndürür.
 import NotFound from "./NotFound";
 import spinner from "../img/Spinner-2.gif";
 
