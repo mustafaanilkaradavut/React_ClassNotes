@@ -35,6 +35,7 @@ const PersonDetail = () => {
   }, []);
 
   //? Conditional rendering
+  
   if (loading) {
     return (
       <div className="text-center">

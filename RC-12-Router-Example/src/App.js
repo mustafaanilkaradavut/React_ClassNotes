@@ -21,13 +21,13 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
 
-        {/* People ve PersonDetail sayfalarının ikisi de Private Router'ın arkasında */}
+        {/* //__ People ve PersonDetail sayfalarının ikisi de Private Router'ın arkasında */}
         {/* <Route path="/people" element={<PrivateRouter />}>
           <Route path="" element={<People />} />
           <Route path=":id" element={<PersonDetail />} />
         </Route> */}
 
-        {/* People sayfası public olsun ancak PersonDetail sayfası protected olsun  */}
+        {/* //__ People sayfası public olsun ancak PersonDetail sayfası protected olsun  */}
         <Route path="/people" element={<People />} />
         {/* //.. people/:id yazmamızdaki sebep buaradaki ":" bize dinamikliği verir.  */}
         <Route path="/people/:id" element={<PrivateRouter />}>
