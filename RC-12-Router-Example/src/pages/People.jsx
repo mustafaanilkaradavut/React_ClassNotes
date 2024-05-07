@@ -30,6 +30,8 @@ const People = () => {
               // onClick={() => navigate(`/people/${id}`)}
               //? Relative
               onClick={() => navigate(`${id}`)}>
+              {" "}
+              {/* //__ kişi click edildiğinde yeni sayfaya gönlendiririz. */}
               <img className="rounded" src={avatar} alt="img" />
               <h6>
                 {first_name} {last_name}
