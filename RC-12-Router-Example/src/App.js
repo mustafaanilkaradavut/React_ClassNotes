@@ -37,7 +37,7 @@ function App() {
         <Route path="/contact" element={<Contact />} />
         {/* //__ Path route'nun içersinde başka alt route'lar olabilir */}
         <Route path="/paths" element={<Paths />}>
-          <Route index path="" element={<FS />} />
+          <Route index path="fs" element={<FS />} />
           <Route path="aws" element={<AWS />}>
             <Route path="azure" element={<Azure />} />
             <Route path="google" element={<Google />} />

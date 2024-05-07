@@ -1,4 +1,5 @@
 import { Outlet, useNavigate } from "react-router-dom";
+//__ Outlet componenti nested router'lardaki child'in nereye basılacağını bize gösterir.
 
 const Paths = () => {
   const navigate = useNavigate();
@@ -15,9 +16,7 @@ const Paths = () => {
         experts!
       </p>
       <div>
-        <button
-          className="btn btn-success w-50"
-          onClick={() => navigate("/paths")}>
+        <button className="btn btn-success w-50" onClick={() => navigate("fs")}>
           FS
         </button>
         <button
