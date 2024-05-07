@@ -38,6 +38,7 @@ function App() {
         {/* //__ Path route'nun içersinde başka alt route'lar olabilir */}
         <Route path="/paths" element={<Paths />}>
           <Route index path="fs" element={<FS />} />
+          {/* //.. Burada index dememiz path sayfası açılınca bize direk FS içeriği ile gösterim vermesini sağlar.  */}
           <Route path="aws" element={<AWS />}>
             <Route path="azure" element={<Azure />} />
             <Route path="google" element={<Google />} />
