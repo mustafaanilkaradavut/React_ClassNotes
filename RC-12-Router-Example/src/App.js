@@ -30,6 +30,7 @@ function App() {
         {/* //__ People sayfası public olsun ancak PersonDetail sayfası protected olsun  */}
         <Route path="/people" element={<People />} />
         {/* //.. people/:id yazmamızdaki sebep buaradaki ":" bize dinamikliği verir.  */}
+        {/* //__ Burada PrivateRouter login olup olmadığını check edip ardından true/false değerine göre hareket eder. */}
         <Route path="/people/:id" element={<PrivateRouter />}>
           <Route path="" element={<PersonDetail />} />
         </Route>
