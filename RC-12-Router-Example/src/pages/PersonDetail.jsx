@@ -8,6 +8,7 @@ const PersonDetail = () => {
   const [person, setPerson] = useState([]);
   const [error, setError] = useState(false);
   const [loading, setLoading] = useState(false);
+  //__ Sayfa'ya atılan isteğin yüklenmesi uzun sürdüğü vakit, loading kısmında veri yüklenene kadar göstereceğimiz resim.
 
   const navigate = useNavigate();
   const { id } = useParams();
@@ -25,7 +26,7 @@ const PersonDetail = () => {
         return res.json();
       })
       .then((data) => {
-        setLoading(false);
+        setLoading(false); //__ İsteğimiz başarılı veya başarısız olsa dahil işlem bittiğinde loading görselinin bitmesi.
         setPerson(data.data);
       })
       .catch((err) => console.log(err));
@@ -35,7 +36,7 @@ const PersonDetail = () => {
   }, []);
 
   //? Conditional rendering
-  
+
   if (loading) {
     return (
       <div className="text-center">
