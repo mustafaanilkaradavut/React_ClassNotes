@@ -23,6 +23,18 @@ const SpacingAndSizing = () => {
           Click
         </button>
       </div>
+
+      <div>
+        <button className=" bg-indigo-300  text-white rounded-full py-2 mx-1 w-20">
+          Click
+        </button>
+        <button className=" bg-indigo-300  text-white rounded-full py-2 mx-1 w-1/2">
+          Click
+        </button>
+        <button className=" bg-indigo-300  text-white rounded-full py-2 mx-1 w-[300px]">
+          Click
+        </button>
+      </div>
     </>
   );
 };
