@@ -32,6 +32,12 @@ const Typografy = () => {
         <p className="line-through">Hello</p>
         <p className="uppercase">Hello</p>
         <p className="lowercase">Hello</p>
+        <p className="text-red-400">Hello</p>
+        <p className="text-red-900">Hello</p>
+        <p className="text-green-900">Hello</p>
+        <p className="text-[#1E0342] font-bold">Hello</p>
+        <p className="bg-slate-500">Hello</p>
+        <p className="bg-[#E1F7F5]">Hello</p>
       </article>
     </div>
   );
