@@ -11,6 +11,8 @@ const Typografy = () => {
       <h3 className="text-sm ">Typografy</h3>
       <h3 className="text-[60px]">Typografy</h3>
       <h3 className="text-base/10">Typografy</h3>
+
+      
     </div>
   );
 };
