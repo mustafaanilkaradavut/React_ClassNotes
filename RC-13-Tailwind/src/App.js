@@ -3,6 +3,7 @@ import Navbar from "./components/Navbar";
 // import HoverAndFocus from "./components/HoverAndFocus";
 // import SpacingAndSizing from "./components/SpacingAndSizing";
 // import Typografy from "./components/Typografy";
+import ProfileCard from "./components/ProfileCard";
 
 function App() {
   return (
@@ -13,6 +14,7 @@ function App() {
       {/* <HoverAndFocus /> */}
       {/* <FlexAndResponsive /> */}
       <Navbar />
+      <ProfileCard />
     </div>
   );
 }
