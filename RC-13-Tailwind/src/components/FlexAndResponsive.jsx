@@ -16,7 +16,7 @@ const FlexAndResponsive = () => {
       <div className=" grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 ">
         {arr.map((item, i) => (
           <div key={i} className=" bg-teal-500">
-            {i + 1}{" "}
+            {i + 1}
           </div>
         ))}
       </div>
