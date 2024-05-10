@@ -1,26 +1,26 @@
-import { useContext } from "react"
-import { createContext, useState } from "react"
+import { useContext } from "react";
+import { createContext, useState } from "react";
 
-//? 1-) Login context'nin olusturulması
-export const LoginContext = createContext()
+//?__    1-) Login context'nin olusturulması.
+export const LoginContext = createContext();
 
-//? 2-) Login context'için sarmalıyı compoenent oluşturduk
+//__     2-) Login context için sarmalıyıcı component oluşturduk.
 const LoginProvider = (props) => {
-  const [signed, setSigned] = useState(false)
+  const [signed, setSigned] = useState(false);
 
-  const values = { signed, setSigned }
+  const values = { signed, setSigned };
   return (
     <LoginContext.Provider value={values}>
       {props.children}
     </LoginContext.Provider>
-  )
-}
-//? 3-) Consuming işlemini basitleştirmek için bir custom hook
+  );
+};
+//__     3-) Consuming işlemini basitleştirmek için bir custom hook tanımlarız.
 export const useLoginContext = () => {
-  return useContext(LoginContext)
-}
+  return useContext(LoginContext);
+};
 
-export default LoginProvider
+export default LoginProvider;
 
 {
   /* <LoginProvider value={}>
