@@ -12,7 +12,7 @@ const Login = () => {
       console.log({ email, pass });
       login({ email, pass });
     } else {
-      alert("Kullanıcı bilgileri yanlış");
+      alert("User information not correct!");
     }
   };
   return (
@@ -32,13 +32,11 @@ const Login = () => {
         </div>
         <form
           onSubmit={handleSubmit}
-          className="flex flex-col text-left p-3 gap-5 "
-        >
+          className="flex flex-col text-left p-3 gap-5 ">
           <div className="flex flex-col gap-2">
             <label
               className="font-montserrat text-label text-labelColor hover:cursor-pointer hover:after:content-['admin@aa.com'] hover:after:text-black hover:after:pl-3 hover:after:underline"
-              htmlFor="email"
-            >
+              htmlFor="email">
               Email
             </label>
             <input
@@ -52,9 +50,8 @@ const Login = () => {
           </div>
           <div className="flex flex-col gap-2">
             <label
-              className="font-montserrat text-label text-labelColor hover:cursor-pointer hover:after:content-['admin@aa.com'] hover:after:text-black hover:after:pl-3 hover:after:underline"
-              htmlFor="password"
-            >
+              className="font-montserrat text-label text-labelColor hover:cursor-pointer hover:after:content-['admin'] hover:after:text-black hover:after:pl-3 hover:after:underline"
+              htmlFor="password">
               Password
             </label>
             <input

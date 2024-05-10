@@ -11,6 +11,7 @@ module.exports = {
       },
       fontFamily: {
         montserrat: ["Montserrat", "sans-serif"],
+        //__ index.html üzerine ilgili fontun linkini yapıştırdık.
       },
       fontSize: {
         label: [
