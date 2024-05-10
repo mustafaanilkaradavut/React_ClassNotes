@@ -15,17 +15,24 @@ const LoginProvider = (props) => {
     </LoginContext.Provider>
   );
 };
-//__     3-) Consuming işlemini basitleştirmek için bir custom hook tanımlarız.
+//__     3-) Consuming işlemini basitleştirmek için bir custom hook tanımlarız. (useLoginContext)
+//?          LoginContext değilde useLoginContext olmasının sebebi
 export const useLoginContext = () => {
   return useContext(LoginContext);
 };
 
+// const deneme useLoginContext=()=>{
+//   return useContext(LoginContext)
+// }
+//.. React component'i bir jsx döndürür.
+//.. Custom hook içerisinde başka hook döndürebileceğimiz jsx olmayan bir koddur. use ile başlamak zorundadır.
+
 export default LoginProvider;
 
-{
-  /* <LoginProvider value={}>
+// {
+//   /* <LoginProvider value={}>
 
-    <App/>
+//     <App/>
 
-</LoginProvider> */
-}
+// </LoginProvider> */
+// }
