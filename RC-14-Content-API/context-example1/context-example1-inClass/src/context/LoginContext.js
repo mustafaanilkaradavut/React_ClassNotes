@@ -1,4 +1,4 @@
-import { createContext } from "react"
+import { createContext } from "react";
 
-//? 1-) Login context'nin olusturulması
-export const LoginContext = createContext()
+//__         1-) Login context'nin oluşturulması
+export const LoginContext = createContext();

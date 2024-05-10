@@ -1,21 +1,22 @@
-import Footer from "./components/Footer"
-import Navs from "./components/Navs"
-import About from "./pages/About"
-import Home from "./pages/Home"
-import People from "./pages/People"
-import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom"
-import PersonDetail from "./pages/PersonDetail"
-import Login from "./pages/Login"
-import PrivateRouter from "./pages/PrivateRouter"
-import { LoginContext } from "./context/LoginContext"
-import { useState } from "react"
+import Footer from "./components/Footer";
+import Navs from "./components/Navs";
+import About from "./pages/About";
+import Home from "./pages/Home";
+import People from "./pages/People";
+import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
+import PersonDetail from "./pages/PersonDetail";
+import Login from "./pages/Login";
+import PrivateRouter from "./pages/PrivateRouter";
+import { LoginContext } from "./context/LoginContext";
+import { useState } from "react";
 
 function App() {
-  const [signed, setSigned] = useState(false)
+  const [signed, setSigned] = useState(false);
+  //?   Bir state oluştururuz bu state'i provider'da (content) kullanılırız.
 
-  console.log(signed)
+  console.log(signed);
   return (
-    //? 2. Uygulamanın Context provider'ı ile sarmalnaması
+    //__     2. Uygulamanın Context provider'ı ile sarmalnaması, uygulanmanın tamımını sarmaladık.
     <LoginContext.Provider value={{ signed, setSigned }}>
       <BrowserRouter>
         <Navs />
@@ -34,7 +35,7 @@ function App() {
         <Footer />
       </BrowserRouter>
     </LoginContext.Provider>
-  )
+  );
 }
 
-export default App
+export default App;
