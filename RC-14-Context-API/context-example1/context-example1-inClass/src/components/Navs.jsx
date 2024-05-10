@@ -7,7 +7,7 @@ import { useContext } from "react"
 import { LoginContext } from "../context/LoginContext"
 
 function Navs() {
-  //? consuming
+  //? consuming ( Global State'i burada uygularız / okuruz. )
   const { signed, setSigned } = useContext(LoginContext)
 
   return (
