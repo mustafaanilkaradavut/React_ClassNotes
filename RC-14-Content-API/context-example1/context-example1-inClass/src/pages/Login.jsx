@@ -20,6 +20,7 @@ const Login = () => {
     setUser({ email: "", password: "" });
     // navigate("/people")
     navigate(-1); //__     bir önceki adres git (people)
+    //? signed varsa people git demeye gerek yok çünkü PrivateRouter kısmında bu girdi var.
   };
 
   console.log(user);
