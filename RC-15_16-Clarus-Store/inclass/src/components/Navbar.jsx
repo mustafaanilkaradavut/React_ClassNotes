@@ -54,7 +54,7 @@ const Navbar = () => {
           } md:flex md:flex-row flex-1 items-center `}
         >
           <ul className=" md:flex md:space-x-6">
-            {navigation.map((item) => (
+            {navigation.map((item) => ( //__ Her bir item'ı bizim için göndürür. 
               <li
                 key={item.title}
                 className="text-gray-700 font-medium flex justify-center"
