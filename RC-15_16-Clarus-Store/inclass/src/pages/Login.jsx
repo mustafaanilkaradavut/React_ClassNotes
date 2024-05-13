@@ -5,6 +5,7 @@ const Login = () => {
   const [email, setEmail] = useState("");
   const [pass, setPass] = useState("");
   const { login } = useContext(AuthContext);
+  //__ AuthProvider ile 1. olarak create ederiz. 2. sarmalarız. 3. use hook'u ile burada alırız.
 
   const handleSubmit = (e) => {
     e.preventDefault();
