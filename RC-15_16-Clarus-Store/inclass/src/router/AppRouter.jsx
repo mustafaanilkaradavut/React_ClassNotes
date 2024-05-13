@@ -20,9 +20,9 @@ const AppRouter = () => {
           <Route path="" element={<Home />} />
           <Route path="/dashboard/products" element={<Products />} />
           <Route path="/dashboard/products/:id" element={<ProductDetail />} />
-          {/* //* absolute path */}
+          {/* //.. absolute path */}
           <Route path="/dashboard/about" element={<About />} />
-          {/* //* relative path */}
+          {/* //.. relative path */}
           {/* <Route path="about" element={<About />} /> */}
         </Route>
         <Route path="*" element={<NotFound />} />

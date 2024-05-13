@@ -1,8 +1,9 @@
-import React, { Children, createContext, useEffect, useState } from "react";
+import React, { children, createContext, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 // const {Provider} =  createContext()
 export const AuthContext = createContext();
+//__ Bu işlem sonrası hook kullanılacağı için ve bu compenenti başka yerde kullanacağımız için export etmemiz lazım.
 
 const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(

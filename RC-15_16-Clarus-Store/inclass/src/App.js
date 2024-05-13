@@ -17,7 +17,7 @@ function App() {
           <AppRouter />
         </ProductProvider>
       </AuthProvider>
-      {/*//* route yapısını router dosyasına taşıdık */}
+      {/*//.. route yapısını router dosyasına taşıdık */}
       {/* <BrowserRouter>
         <Routes>
           <Route path="/" element={<Login />} />
@@ -25,6 +25,8 @@ function App() {
           <Route path="/products" element={<Products />} />
           <Route path="/about" element={<About />} />
           <Route path="*" element={<NotFound />} />
+          //__ Burada uyuşayan bir içerik gelirse NotFound'u çağır demiş oluyoruz.
+          //__ Yukarıda yapılan işlemlerin hepsini router klasörü altında bir router sayfası altında toplarız.
         </Routes>
       </BrowserRouter> */}
     </div>
