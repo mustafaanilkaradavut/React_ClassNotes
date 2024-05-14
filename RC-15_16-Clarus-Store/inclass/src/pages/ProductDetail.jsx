@@ -69,7 +69,7 @@ const ProductDetail = () => {
               <button
                 onClick={() => navigate(-1)}
                 className="border rounded-lg bg-labelColor text-white p-2">
-                Geri
+                Back
               </button>
               <button
                 onClick={() => navigate("/dashboard")}
