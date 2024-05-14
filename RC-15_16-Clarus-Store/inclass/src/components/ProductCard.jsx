@@ -10,6 +10,7 @@ const ProductCard = ({ product }) => {
     <>
       <div
         className="cursor-pointer"
+        //.. relative path kullanmakta fayda vardır. Aşağıdaki gibi. Navigate içinde state gönderebiliriz.
         onClick={() => navigate(`${id}`, { state: product })}>
         <div className="w-full rounded-md bg-gray-200 hover:opacity-75 lg:h-80">
           <img

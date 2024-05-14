@@ -74,7 +74,7 @@ const ProductDetail = () => {
               <button
                 onClick={() => navigate("/dashboard")}
                 className="border rounded-lg bg-main text-white p-2">
-                Ana Sayfaya Dön
+                Back to Home
               </button>
             </div>
           </div>
