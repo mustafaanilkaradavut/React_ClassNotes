@@ -74,6 +74,7 @@ const Navbar = () => {
           <div className="flex-1 gap-x-6 items-center justify-end mt-6 space-y-6 md:flex md:space-y-0 md:mt-0">
             <NavLink
               // to="/"
+              //? Yukarı daki yönlendirmeyi kaldırırız. Çünkü state tanımladığımız için tıklama sonrası otomatik yönlendirilecek.
               onClick={() => logout()}
               className="flex items-center justify-center gap-x-1 py-2 px-4 font-medium text-gray-700 hover:bg-main hover:text-white active:bg-gray-900 rounded-full md:inline-flex">
               Logout {logoutIcon}
