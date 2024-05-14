@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+// import React, { useEffect, useState } from "react";
 // import axios from "axios";
 import ProductCard from "../components/ProductCard";
 import Loading from "../components/Loading";
@@ -27,7 +27,7 @@ const Products = () => {
 
   // useEffect(() => {
   //   getData();
-  // }, [search]); //! search state'i değiştikçe getData fonksiyonu çalışsın
+  // }, [search]); //! search state'i değiştikçe getData fonksiyonu çalışsın istiyorsak.
 
   const { products, loading } = useProductsContext();
   return (
@@ -37,7 +37,6 @@ const Products = () => {
       <h2 className="text-2xl font-bold mt-8 tracking-tight text-gray-900">
         All Products
       </h2>
-
       {loading ? (
         <Loading />
       ) : products.length ? (
@@ -52,5 +51,8 @@ const Products = () => {
     </div>
   );
 };
+
+// __ product lenght bölümü bize search ettiğimizde, girdiğimiz değere ait product gösterilmediğinde.
+//__ (loading)Bu işlem ürünlerimiz yüklenirken loading animasyonu.İşlem bittikten sonra'da false çevirerek ürünleri getirir.
 
 export default Products;
