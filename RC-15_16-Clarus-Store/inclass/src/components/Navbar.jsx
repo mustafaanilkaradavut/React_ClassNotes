@@ -23,6 +23,7 @@ const Navbar = () => {
   const [show, setShow] = useState(false);
   const { logout } = useContext(AuthContext);
   const location = useLocation();
+  //__ Nested route'larda useLocation üzerinden stillendirme yapabiliriz. 62. satır (NavLink)
   console.log(location);
   return (
     <nav className="bg-navbarColor md:text-sm">
