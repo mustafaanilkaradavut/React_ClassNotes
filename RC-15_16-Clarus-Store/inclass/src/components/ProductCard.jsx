@@ -2,6 +2,7 @@ import React from "react";
 import { useNavigate } from "react-router-dom";
 import ScrollToTop from "./ScrollToTop";
 
+//__ Products kısmında oluşturulan product yakalanır. Ve product dizinindeki kullanılacak.
 const ProductCard = ({ product }) => {
   const { title, category, thumbnail, price, id } = product;
   const navigate = useNavigate();
@@ -9,8 +10,7 @@ const ProductCard = ({ product }) => {
     <>
       <div
         className="cursor-pointer"
-        onClick={() => navigate(`${id}`, { state: product })}
-      >
+        onClick={() => navigate(`${id}`, { state: product })}>
         <div className="w-full rounded-md bg-gray-200 hover:opacity-75 lg:h-80">
           <img
             src={thumbnail}
