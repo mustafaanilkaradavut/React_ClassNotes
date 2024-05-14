@@ -9,6 +9,7 @@ const PrivateRouter = () => {
     <>
       <Navbar />
       <Outlet />
+      {/* //__ Nav-bar'ı buraya ekleriz. Sebebi sadece login kısmında navbar gözükmesin ve diğer componentlerde görülmesini istiyoruz. AppRouter kısmından navBar'ı kaldırırız. */}
     </>
   ) : (
     <Navigate to="/" />
