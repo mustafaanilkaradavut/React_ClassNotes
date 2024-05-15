@@ -54,7 +54,7 @@ const Navbar = () => {
           <ul className=" md:flex md:space-x-6">
             {navigation.map(
               (
-                item //__ Her bir item'ı bizim için göndürür.
+                item //__ Her bir item'i bizim için döndürür.
               ) => (
                 <li
                   key={item.title}
