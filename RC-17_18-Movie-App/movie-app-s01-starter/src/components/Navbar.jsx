@@ -1,12 +1,15 @@
 import { Fragment } from "react";
 import { Disclosure, Menu, Transition } from "@headlessui/react";
 import { Link } from "react-router-dom";
+import Switch from "./Switch";
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
 }
 
 export default function Navbar() {
+  const currentUser = { displayName: "Mustafa Anil" };
+  // const currentUser = false;
   return (
     <Disclosure
       as="nav"
@@ -17,6 +20,10 @@ export default function Navbar() {
             React Movie App
           </Link>
           <div className="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
+            {currentUser && (
+              <h5 className="mr-2 capitalize ">{currentUser?.displayName}</h5>
+            )}
+            <Switch />
             {/* Profile dropdown */}
             <Menu as="div" className="relative ml-3">
               <div>
