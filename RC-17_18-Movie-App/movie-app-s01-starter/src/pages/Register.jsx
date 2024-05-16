@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import GoogleIcon from "../assets/icons/GoogleIcon";
+import { useAuthContext } from "../context/AuthProvider";
+import { createUserWithEmailAndPassword } from "firebase/auth";
 
 const Register = () => {
   //__ Birleştirilmiş state uygularız obje yöntemi ile. Burada önemli nokta
@@ -10,12 +12,16 @@ const Register = () => {
     password: " ",
   });
 
+  const { createUser } = useAuthContext();
+
   const handleChange = (e) =>
     setInfo({ ...info, [e.target.name]: e.target.value });
   // console.log(info);
 
+  const { email, password } = info;
   const handlesumbit = (e) => {
     e.preventDefault();
+    createUser(email, password);
     console.log(info);
   };
 
