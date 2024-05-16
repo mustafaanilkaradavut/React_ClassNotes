@@ -55,8 +55,7 @@ const Register = () => {
             </button>
             <button
               className="flex justify-between text-center items-center btn-danger"
-              type="button"
-            >
+              type="button">
               Continue with Google
               <GoogleIcon color="currentColor" />
             </button>
