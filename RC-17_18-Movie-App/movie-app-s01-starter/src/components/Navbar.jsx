@@ -3,13 +3,16 @@ import { Disclosure, Menu, Transition } from "@headlessui/react";
 import { Link } from "react-router-dom";
 import Switch from "./Switch";
 import avatar from "../assets/icons/avatar.png";
+import { useAuthContext } from "../context/AuthProvider";
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
 }
 
 export default function Navbar() {
-  const currentUser = { displayName: "Mustafa Anil" };
+  //__ NavBar'dan statik almamıza gerek yok useAuthContext'ten alabiliriz.
+  const { currentUser } = useAuthContext();
+  // const currentUser = { displayName: "Mustafa Anil" };
   // const currentUser = false;
   return (
     <>
