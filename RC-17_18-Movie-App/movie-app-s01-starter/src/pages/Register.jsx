@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import GoogleIcon from "../assets/icons/GoogleIcon";
 import { useAuthContext } from "../context/AuthProvider";
-import { createUserWithEmailAndPassword } from "firebase/auth";
 
 const Register = () => {
   //__ Birleştirilmiş state uygularız obje yöntemi ile. Burada önemli nokta
@@ -12,16 +11,17 @@ const Register = () => {
     password: " ",
   });
 
-  const { createUser } = useAuthContext();
+  const { createUser, googleProvider } = useAuthContext();
 
   const handleChange = (e) =>
     setInfo({ ...info, [e.target.name]: e.target.value });
   // console.log(info);
 
-  const { email, password } = info;
+  const { email, password, firstName, lastName } = info;
   const handlesumbit = (e) => {
     e.preventDefault();
-    createUser(email, password);
+    const displayName = `${firstName} ${lastName}`;
+    createUser(email, password, displayName);
     console.log(info);
   };
 
@@ -83,6 +83,7 @@ const Register = () => {
             <button
               className="flex justify-between text-center items-center btn-danger"
               type="button">
+              onClick={() => googleProvider()}
               Continue with Google
               <GoogleIcon color="currentColor" />
             </button>
