@@ -27,6 +27,7 @@ const MovieCard = ({ title, poster_path, overview, vote_average, id }) => {
       onClick={() => navigate("/details/" + id)}>
       <img
         loading="lazy"
+        //__ post_path tamamen görsel URL'si içermiyor. API'nin bir kısmından sonrasını içerdiği için API ile birleştiririz.
         src={poster_path ? IMG_API + poster_path : defaultImage}
         alt="movie-card"
       />
@@ -38,6 +39,7 @@ const MovieCard = ({ title, poster_path, overview, vote_average, id }) => {
           </span>
         )}
       </div>
+      {/* Burada index.css ile movie-over'a hover efect veririz. */}
       <div className="movie-over">
         <h2>Overview</h2>
         <p>{overview}</p>
