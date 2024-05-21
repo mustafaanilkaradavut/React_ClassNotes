@@ -8,7 +8,7 @@ import Typography from "@mui/material/Typography";
 const boxStyle = {
   display: "flex",
   flexDirection: "column",
-  alignItems: "flex-end",
+  alignItems: "center",
   p: 2,
   mt: 3,
 };
