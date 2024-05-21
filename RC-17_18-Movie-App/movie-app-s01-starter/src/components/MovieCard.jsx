@@ -28,6 +28,7 @@ const MovieCard = ({ title, poster_path, overview, vote_average, id }) => {
       <img
         loading="lazy"
         //__ post_path tamamen görsel URL'si içermiyor. API'nin bir kısmından sonrasını içerdiği için API ile birleştiririz.
+        //__ URL ve API'yi yukarıda tanımlarız.
         src={poster_path ? IMG_API + poster_path : defaultImage}
         alt="movie-card"
       />
