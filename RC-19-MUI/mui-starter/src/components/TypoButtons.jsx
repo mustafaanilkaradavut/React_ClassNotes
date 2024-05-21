@@ -15,6 +15,7 @@ const boxStyle = {
 const TypoButtons = () => {
   return (
     <div>
+      {/* Burada sx altına {{ içerisine yukarıdaki değerleri yazabilir ve sonuç alabiliriz.}} */}
       <Box sx={boxStyle}>
         <Typography variant="h1" component="h3">
           Deneme
@@ -41,12 +42,14 @@ const TypoButtons = () => {
       <Typography variant="h2" align="center" color="turquoise" mt={4}>
         BUTTONS
       </Typography>
+
       <Stack
         direction={"row"}
         mt={3}
         gap={2}
         justifyContent={"center"}
         flexWrap={"wrap"}>
+        {/*  */}
         <Button variant="text">Text</Button>
         <Button variant="contained">Contained</Button>
         <Button variant="outlined">Outlined</Button>
