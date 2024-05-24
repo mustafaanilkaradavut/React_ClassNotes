@@ -45,8 +45,7 @@ const TypoButtons = () => {
         mt={3}
         gap={2}
         justifyContent={"center"}
-        flexWrap={"wrap"}
-      >
+        flexWrap={"wrap"}>
         <Button variant="text">Text</Button>
         <Button variant="contained">Contained</Button>
         <Button variant="outlined">Outlined</Button>
@@ -62,8 +61,7 @@ const TypoButtons = () => {
             color: "black",
             backgroundColor: "#bede",
             ":hover": { backgroundColor: "#3ac798ed" },
-          }}
-        >
+          }}>
           Contained
         </Button>
         <Button
@@ -72,8 +70,7 @@ const TypoButtons = () => {
             color: "black",
             backgroundColor: "secondary.light",
             ":hover": { backgroundColor: "secondary.dark" },
-          }}
-        >
+          }}>
           Contained
         </Button>
       </Stack>
