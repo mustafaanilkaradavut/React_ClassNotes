@@ -1,11 +1,15 @@
-import TextFieldComp from "../components/TextFieldComp";
+// import TextFieldComp from "../components/TextFieldComp";
 // import TypoButtons from "../components/TypoButtons";
+import { CssBaseline } from "@mui/material";
+import Navbar from "../components/Navbar";
 
 const Home = () => {
   return (
     <>
+      <CssBaseline />
       {/* <TypoButtons /> */}
-      <TextFieldComp />
+      {/* <TextFieldComp /> */}
+      <Navbar />
     </>
   );
 };
