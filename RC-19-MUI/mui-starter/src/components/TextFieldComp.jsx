@@ -31,7 +31,7 @@ const TextFieldComp = () => {
         variant="outlined"
         margin="normal"
         color="success"
-        helperText={err && "Yanlış email girdiniz"}
+        helperText={err && "Your enter wrong email"}
         error={err}
         type="email"
         required
