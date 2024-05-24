@@ -71,6 +71,7 @@ const TypoButtons = () => {
         <Button
           variant="contained"
           //__ Eğer buradan sx ile özelleştirme yapacak ve color değiştireceksek, default olarak gelen hover efektinide vermemiz lazım.
+          //__ inline style mantığını uygulayabiliriz. Const ile bir değer atayıp onu sx içinde kullanabilir, veya ayrı JS içerisinde bu verileri tanımlayabiliriz.
           sx={{
             color: "black",
             backgroundColor: "secondary.light",
