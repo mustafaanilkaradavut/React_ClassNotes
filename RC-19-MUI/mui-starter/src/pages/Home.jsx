@@ -1,7 +1,8 @@
 // import TextFieldComp from "../components/TextFieldComp";
 // import TypoButtons from "../components/TypoButtons";
 import { CssBaseline } from "@mui/material";
-import Navbar from "../components/Navbar";
+import CardComp from "../components/CardComp";
+// import Navbar from "../components/Navbar";
 
 const Home = () => {
   return (
@@ -9,7 +10,8 @@ const Home = () => {
       <CssBaseline />
       {/* <TypoButtons /> */}
       {/* <TextFieldComp /> */}
-      <Navbar />
+      {/* <Navbar /> */}
+      <CardComp />
     </>
   );
 };
