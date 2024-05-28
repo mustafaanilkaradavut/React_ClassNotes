@@ -1,6 +1,6 @@
 import { useSelector, useDispatch } from "react-redux";
 import "./Counter.css";
-import { down, remove, up } from "../../store/ counterReducer";
+import { down, remove, removeFunc, up } from "../../store/counterReducer";
 
 const Counter = () => {
   //? Global state'den veri okumak için useSelector hook'u kullanılır.
@@ -22,7 +22,8 @@ const Counter = () => {
         </button>
         <button
           className="counter-button zero"
-          onClick={() => dispatch({ type: remove })}>
+          // onClick={() => dispatch({ type: remove })}>
+          onClick={() => dispatch(removeFunc())}>
           reset
         </button>
         <button
