@@ -1,5 +1,6 @@
 const initialState = {
   count: 0,
+  token: "",
 };
 
 //__ action type'ların değişken olarak tanımlanması bizi bir çok case-sensitive hatasından kurtaracaktır.

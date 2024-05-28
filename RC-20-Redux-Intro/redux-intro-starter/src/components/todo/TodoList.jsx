@@ -1,10 +1,11 @@
+import React from "react";
 import { useSelector } from "react-redux";
 import TodoItem from "./TodoItem";
 
 const TodoList = () => {
-  const todoList = useSelector((state) => state.todo.TodoList);
+  const todoList = useSelector((state) => state.todo.todoList); //__ Doğru state anahtarı ile erişim.
 
-  const handleClearList = () => {};
+  console.log("TodoList Rendered with:", todoList); //__ Render edilen veriyi loglama.
 
   return (
     <div>
@@ -14,9 +15,7 @@ const TodoList = () => {
         ))}
       </div>
       <div className="clear-wrapper">
-        <button onClick={handleClearList} className="clear-button">
-          Clear
-        </button>
+        <button className="clear-button">Clear</button>
       </div>
     </div>
   );
