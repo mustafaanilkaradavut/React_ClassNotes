@@ -1,6 +1,7 @@
 import { combineReducers, legacy_createStore as createStore } from "redux";
 import { counterReducer } from "./counterReducer";
 import { todoReducer } from "./todoReducer";
+import { composeWithDevTools } from "@redux-devtools/extension";
 //? Yaptığımız işlem eski method olduğu için createStore üstü çizilidir.
 //? Bunu kaldırmak için legacy_createStore as ... işlemini kullanıruz.
 
@@ -13,4 +14,4 @@ const rootReducer = combineReducers({
   todo: todoReducer,
 });
 
-export const store = createStore(rootReducer);
+export const store = createStore(rootReducer, composeWithDevTools());
