@@ -21,6 +21,8 @@ export default function Navbar() {
             Clarusway News
           </Typography>
 
+          {/* //__ TODO Şartlı Buton render'ının yapılması lazım.  */}
+
           <Button color="inherit">Login</Button>
         </Toolbar>
       </AppBar>

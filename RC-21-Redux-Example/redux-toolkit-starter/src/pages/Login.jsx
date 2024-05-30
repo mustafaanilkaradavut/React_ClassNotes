@@ -14,6 +14,12 @@ export default function Login() {
 
   const handleSubmit = (e) => {
     e.preventDefault()
+
+    //__ TODO
+    //?  Global state güncellenmeli.
+    //? Navigate -- Routing yapılmalı.
+
+
     setEmail("")
     setPassword("")
   }
