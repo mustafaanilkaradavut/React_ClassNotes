@@ -9,20 +9,22 @@ import Container from "@mui/material/Container";
 import { useState } from "react";
 import { setUser } from "../features/loginSlice";
 import { useDispatch } from "react-redux";
+import { useNavigate } from "react-router-dom";
 
 export default function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   const handleSubmit = (e) => {
     e.preventDefault();
 
     //__ TODO
     //?  Global state güncellenmeli.
-    //? Navigate -- Routing yapılmalı.
-
     dispatch(setUser({ email, password }));
+    //? Navigate -- Routing yapılmalı.
+    navigate("/");
     setEmail("");
     setPassword("");
   };
