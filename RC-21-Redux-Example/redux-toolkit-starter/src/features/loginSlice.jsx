@@ -8,10 +8,12 @@ const initialState = {
 };
 
 const loginSlice = createSlice({
-  name: "login",
+  name: "login", //.. action type
   initialState,
   reducers: {
+    //.. reducer
     setUser: (state, action) => {
+      //.. action creater functuion
       state.user = action.payload;
     },
     clearUser: (state) => {
