@@ -7,7 +7,7 @@ const initialState = {
   error: false,
 };
 
-const getNews = createAsyncThunk(
+export const getNews = createAsyncThunk(
   "getNews", //__ action type
   async () => {
     const API_KEY = "f33b836eabbd49888b8ef386ed77c55f";
@@ -21,6 +21,20 @@ const newsSlice = createSlice({
   name: "news",
   initialState,
   reducers: {},
+  extraReducers: (builder) => {
+    builder
+      .addCase(getNews.pending, (state, action) => {
+        state.loading = true;
+      })
+      .addCase(getNews.fulfilled, (state, { payload }) => {
+        state.loading = false;
+        state.newsData = payload;
+      })
+      .addCase(getNews.rejected, (state) => {
+        state.loading = false;
+        state.error = true;
+      });
+  },
 });
 
 export const {} = newsSlice.actions;

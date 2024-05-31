@@ -5,8 +5,17 @@ import CardContent from "@mui/material/CardContent";
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 import { CardMedia } from "@mui/material";
+import { useEffect } from "react";
+import { getNews } from "../features/newsSlice";
+import { useDispatch } from "react-redux";
 
+//? Dispatch kullanırız çünkü state değiştirme işlemimiz vardır.
 const News = () => {
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(getNews());
+  });
+
   return (
     <>
       <h1>NEWS</h1>
@@ -15,8 +24,7 @@ const News = () => {
         display="flex"
         alignItems="center"
         justifyContent="space-evenly"
-        flexWrap="wrap"
-      >
+        flexWrap="wrap">
         {[1, 2, 3].map((item, index) => (
           <Card sx={{ maxWidth: 345, m: 5, maxHeight: 600 }} key={index}>
             <CardMedia
