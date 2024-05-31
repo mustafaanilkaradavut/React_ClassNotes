@@ -13,14 +13,20 @@ export const getNews = createAsyncThunk(
     const API_KEY = "f33b836eabbd49888b8ef386ed77c55f";
     const url = `https://newsapi.org/v2/top-headlines?country=us&apiKey=${API_KEY}`;
     //__ api istek fonksiyonu
-    const data = await axios(url);
+    const { data } = await axios(url);
+    console.log(data.articles);
+    return data.articles;
   }
 );
 
 const newsSlice = createSlice({
   name: "news",
   initialState,
-  reducers: {},
+  reducers: {
+    clearNewsData: (state) => {
+      state.newsData = [];
+    },
+  },
   extraReducers: (builder) => {
     builder
       .addCase(getNews.pending, (state, action) => {
@@ -37,6 +43,6 @@ const newsSlice = createSlice({
   },
 });
 
-export const {} = newsSlice.actions;
+export const { clearNewsData } = newsSlice.actions;
 
 export default newsSlice.reducer;

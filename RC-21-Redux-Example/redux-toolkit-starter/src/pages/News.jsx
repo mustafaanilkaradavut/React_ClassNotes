@@ -6,26 +6,48 @@ import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 import { CardMedia } from "@mui/material";
 import { useEffect } from "react";
-import { getNews } from "../features/newsSlice";
-import { useDispatch } from "react-redux";
+import { clearNewsData, getNews } from "../features/newsSlice";
+import { useDispatch, useSelector } from "react-redux";
+import loadingGif from "../assets/loading.gif";
 
 //? Dispatch kullanırız çünkü state değiştirme işlemimiz vardır.
+
 const News = () => {
   const dispatch = useDispatch();
+  const { newsData, loading, error } = useSelector((state) => state.news);
+
+  //__ verilerimizi çekmek için useSelector hook'u kullanırız.
+
   useEffect(() => {
+    //! Mounting
     dispatch(getNews());
-  });
+
+    //? News componenti DOM'dan kaldırldıktan hemen sonra Redux global state^deki newsData verisi siler.
+    //! componentWillUnmouning
+    return () => {
+      dispatch(clearNewsData());
+    };
+  }, []);
 
   return (
     <>
       <h1>NEWS</h1>
+
+      {loading && <img src={loadingGif} alt="gif" />}
+
+      {error && (
+        <Typography variant="h4" color="error" component="div">
+          Oops Somehing went wrong
+        </Typography>
+      )}
+
       <Box
         xs={{ d: "flex" }}
         display="flex"
         alignItems="center"
         justifyContent="space-evenly"
         flexWrap="wrap">
-        {[1, 2, 3].map((item, index) => (
+        {newsData?.map((item, index) => (
           <Card sx={{ maxWidth: 345, m: 5, maxHeight: 600 }} key={index}>
             <CardMedia
               component="img"
