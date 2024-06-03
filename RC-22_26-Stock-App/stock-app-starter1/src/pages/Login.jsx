@@ -11,6 +11,8 @@ import { Button } from "@mui/material";
 import { Formik } from "formik";
 
 const Login = () => {
+  const loginSchema = {};
+
   return (
     <Container maxWidth="lg">
       <Grid
@@ -45,10 +47,18 @@ const Login = () => {
             Login
           </Typography>
 
-          <Formik>
+          <Formik
+            initialValues={{ email: "", password: "" }}
+            validationSchema={loginSchema}
+            onSumbit={(values, actions) => {}}
+            //__    TODO
+            //? Form resetleme işlemi, 
+            //? Global State güncellemesi 
+            //? Toastify mesajı verilebilir.
+            //? navigate (gitmek istediğimiz sayfaya yönlendirme)
+            //? POST  (login)
+          ></Formik>
 
-            
-          </Formik>
           <Box sx={{ display: "flex", flexDirection: "column", gap: 2 }}>
             <TextField
               label="Email"
