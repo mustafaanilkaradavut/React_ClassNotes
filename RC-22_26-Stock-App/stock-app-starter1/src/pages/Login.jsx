@@ -16,7 +16,13 @@ const Login = () => {
     email: string()
       .email("Please enter a valid email")
       .required("You have to enter your E-mail"),
-    password: string().required(),
+    password: string()
+      .required("Password is Imperative")
+      .min(8, "Password must be at least 8 characters")
+      .max(16, "Password must be at most 16 characters ")
+      .matches(/\d+/, "Password must be at least one number")
+      .matches(/[a-z]/, "Password must be at least one small letter")
+      .matches(/[A-Z]/, "Password must be at least one capitakü letter"),
   });
 
   return (
@@ -88,6 +94,8 @@ const Login = () => {
                     value={values.password}
                     onChange={handleChange}
                     onBlur={handleBlur}
+                    error={touched.password && Boolean(errors.password)}
+                    helperText={errors.password}
                   />
                   <Button variant="contained" type="submit">
                     Submit
