@@ -8,10 +8,17 @@ import { Link } from "react-router-dom";
 import Box from "@mui/material/Box";
 import TextField from "@mui/material/TextField";
 import { Button } from "@mui/material";
-import { Formik } from "formik";
+import { Formik, Form } from "formik";
+import { object, string, number, date, InferType } from "yup";
 
 const Login = () => {
-  const loginSchema = {};
+  const loginSchema = object({
+    name: string().required(),
+    age: number().required().positive().integer(),
+    email: string().email(),
+    website: string().url().nullable(),
+    createdOn: date().default(() => new Date()),
+  });
 
   return (
     <Container maxWidth="lg">
@@ -52,32 +59,44 @@ const Login = () => {
             validationSchema={loginSchema}
             onSumbit={(values, actions) => {}}
             //__    TODO
-            //? Form resetleme işlemi, 
-            //? Global State güncellemesi 
+            //? Form resetleme işlemi,
+            //? Global State güncellemesi
             //? Toastify mesajı verilebilir.
             //? navigate (gitmek istediğimiz sayfaya yönlendirme)
             //? POST  (login)
-          ></Formik>
-
-          <Box sx={{ display: "flex", flexDirection: "column", gap: 2 }}>
-            <TextField
-              label="Email"
-              name="email"
-              id="email"
-              type="email"
-              variant="outlined"
-            />
-            <TextField
-              label="password"
-              name="password"
-              id="password"
-              type="password"
-              variant="outlined"
-            />
-            <Button variant="contained" type="submit">
-              Submit
-            </Button>
-          </Box>
+          >
+            {({ values, handleChange, handleBlur }) => (
+              <Form>
+                <Box sx={{ display: "flex", flexDirection: "column", gap: 2 }}>
+                  <TextField
+                    label="Email"
+                    name="email"
+                    id="email"
+                    type="email"
+                    variant="outlined"
+                    values={values.email}
+                    onChange={handleChange}
+                    onBlur={handleBlur}
+                    error={true}
+                    helperText={"You have to write Your E-mail"}
+                  />
+                  <TextField
+                    label="password"
+                    name="password"
+                    id="password"
+                    type="password"
+                    variant="outlined"
+                    value={values.password}
+                    onChange={handleChange}
+                    onBlur={handleBlur}
+                  />
+                  <Button variant="contained" type="submit">
+                    Submit
+                  </Button>
+                </Box>
+              </Form>
+            )}
+          </Formik>
 
           <Box sx={{ textAlign: "center", mt: 2 }}>
             <Link to="/register">Do you have not an account?</Link>
