@@ -21,8 +21,13 @@ const Login = () => {
       .min(8, "Password must be at least 8 characters")
       .max(16, "Password must be at most 16 characters ")
       .matches(/\d+/, "Password must be at least one number")
+      //? Burada yer alan "+" işareti bunlardan en az bir tanesinin yer almasını gerektiğini vurgulamak için.
       .matches(/[a-z]/, "Password must be at least one small letter")
-      .matches(/[A-Z]/, "Password must be at least one capitakü letter"),
+      .matches(/[A-Z]/, "Password must be at least one capitakü letter")
+      .matches(
+        /[@$!%?&]/,
+        "Password must be at least one special character (@$!%?&)"
+      ),
   });
 
   return (
@@ -83,7 +88,7 @@ const Login = () => {
                     onChange={handleChange}
                     onBlur={handleBlur}
                     error={touched.email && Boolean(errors.email)}
-                    helperText={errors.email}
+                    helperText={touched.email && errors.email}
                   />
                   <TextField
                     label="password"
@@ -95,7 +100,7 @@ const Login = () => {
                     onChange={handleChange}
                     onBlur={handleBlur}
                     error={touched.password && Boolean(errors.password)}
-                    helperText={errors.password}
+                    helperText={touched.password && errors.password}
                   />
                   <Button variant="contained" type="submit">
                     Submit
