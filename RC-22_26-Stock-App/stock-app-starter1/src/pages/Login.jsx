@@ -13,11 +13,10 @@ import { object, string, number, date, InferType } from "yup";
 
 const Login = () => {
   const loginSchema = object({
-    name: string().required(),
-    age: number().required().positive().integer(),
-    email: string().email(),
-    website: string().url().nullable(),
-    createdOn: date().default(() => new Date()),
+    email: string()
+      .email("Please enter a valid email")
+      .required("You have to enter your E-mail"),
+    password: string().required(),
   });
 
   return (
@@ -57,7 +56,7 @@ const Login = () => {
           <Formik
             initialValues={{ email: "", password: "" }}
             validationSchema={loginSchema}
-            onSumbit={(values, actions) => {}}
+            onSubmit={(values, actions) => {}}
             //__    TODO
             //? Form resetleme işlemi,
             //? Global State güncellemesi
@@ -65,7 +64,7 @@ const Login = () => {
             //? navigate (gitmek istediğimiz sayfaya yönlendirme)
             //? POST  (login)
           >
-            {({ values, handleChange, handleBlur }) => (
+            {({ values, handleChange, handleBlur, touched, errors }) => (
               <Form>
                 <Box sx={{ display: "flex", flexDirection: "column", gap: 2 }}>
                   <TextField
@@ -77,8 +76,8 @@ const Login = () => {
                     values={values.email}
                     onChange={handleChange}
                     onBlur={handleBlur}
-                    error={true}
-                    helperText={"You have to write Your E-mail"}
+                    error={touched.email && Boolean(errors.email)}
+                    helperText={errors.email}
                   />
                   <TextField
                     label="password"
