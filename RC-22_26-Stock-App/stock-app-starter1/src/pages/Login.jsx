@@ -10,6 +10,7 @@ import TextField from "@mui/material/TextField";
 import { Button } from "@mui/material";
 import { Formik, Form } from "formik";
 import { object, string, number, date, InferType } from "yup";
+import { act } from "react";
 
 const Login = () => {
   const loginSchema = object({
@@ -67,15 +68,25 @@ const Login = () => {
           <Formik
             initialValues={{ email: "", password: "" }}
             validationSchema={loginSchema}
-            onSubmit={(values, actions) => {}}
-            //__    TODO
-            //? Form resetleme işlemi,
-            //? Global State güncellemesi
-            //? Toastify mesajı verilebilir.
-            //? navigate (gitmek istediğimiz sayfaya yönlendirme)
-            //? POST  (login)
-          >
-            {({ values, handleChange, handleBlur, touched, errors }) => (
+            onSubmit={(values, actions) => {
+              //__    TODO
+              //? POST  (login)
+              //? Toastify mesajı verilebilir.
+              //? Global State güncellemesi
+              //? Form resetleme işlemi,
+              actions.resetForm();
+              actions.setSubmitting(false); //__ isSubmitting True'ya kurulur. Butona disabled verip pasif hale getirebiliriz.
+
+              //? navigate (gitmek istediğimiz sayfaya yönlendirme)
+            }}>
+            {({
+              values,
+              handleChange,
+              handleBlur,
+              touched,
+              errors,
+              isSubmitting,
+            }) => (
               <Form>
                 <Box sx={{ display: "flex", flexDirection: "column", gap: 2 }}>
                   <TextField
@@ -102,7 +113,10 @@ const Login = () => {
                     error={touched.password && Boolean(errors.password)}
                     helperText={touched.password && errors.password}
                   />
-                  <Button variant="contained" type="submit">
+                  <Button
+                    variant="contained"
+                    type="submit"
+                    disabled={isSubmitting}>
                     Submit
                   </Button>
                 </Box>
