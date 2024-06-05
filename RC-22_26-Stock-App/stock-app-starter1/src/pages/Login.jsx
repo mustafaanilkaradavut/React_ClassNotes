@@ -9,8 +9,8 @@ import Box from "@mui/material/Box";
 import TextField from "@mui/material/TextField";
 import { Button } from "@mui/material";
 import { Formik, Form } from "formik";
-import { object, string, number, date, InferType } from "yup";
-import { act } from "react";
+import { object, string } from "yup";
+import { login } from "../services/apiRequest";
 
 const Login = () => {
   const loginSchema = object({
@@ -71,12 +71,12 @@ const Login = () => {
             onSubmit={(values, actions) => {
               //__    TODO
               //? POST  (login)
+              login(values); //__ Burayo apiRequest kısmında çağırırız.
               //? Toastify mesajı verilebilir.
               //? Global State güncellemesi
               //? Form resetleme işlemi,
               actions.resetForm();
               actions.setSubmitting(false); //__ isSubmitting True'ya kurulur. Butona disabled verip pasif hale getirebiliriz.
-
               //? navigate (gitmek istediğimiz sayfaya yönlendirme)
             }}>
             {({
