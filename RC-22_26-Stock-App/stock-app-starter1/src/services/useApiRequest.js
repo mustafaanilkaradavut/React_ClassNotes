@@ -5,13 +5,14 @@ import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 
 export const useApiRequest = () => {
-  const dispatch = useDispatch;
-  const navigate = useNavigate;
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
   //?  bu şekilde okuma yerine .env'de global bir state atarız.
   const login = async (userData) => {
     //   const BASE_URL = "https://12138.fullstack.clarusway.com";
+    
+    
     dispatch(fetchStart());
-
     try {
       const data = await axios.post(
         `${process.env.REACT_APP_BASE_URL}/auth/login`,
@@ -20,8 +21,6 @@ export const useApiRequest = () => {
       dispatch(loginSuccess(data));
       toastSuccessNotify("Login is success");
       navigate("/stock");
-      console.log(data);
-      return data;
     } catch (error) {
       dispatch(fetchFail());
       toastErrorNotify("Login is nonstarter");

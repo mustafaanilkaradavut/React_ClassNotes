@@ -14,7 +14,7 @@ import { object, string } from "yup";
 import useApiRequest from "../services/useApiRequest";
 
 const Login = () => {
-  const { login } = useApiRequest;
+  const { login } = useApiRequest();
   const loginSchema = object({
     email: string()
       .email("Please enter a valid email")
@@ -70,10 +70,10 @@ const Login = () => {
           <Formik
             initialValues={{ email: "", password: "" }}
             validationSchema={loginSchema}
-            onSubmit={(values, actions) => {
+            onSubmit={async (values, actions) => {
               //__    TODO
               //? POST  (login)
-              login(values); //__ Burayo apiRequest kısmında çağırırız.
+              login(values); //__ Burayı apiRequest kısmında çağırırız.
               //? Toastify mesajı verilebilir.
               //? Global State güncellemesi
               //? Form resetleme işlemi,
