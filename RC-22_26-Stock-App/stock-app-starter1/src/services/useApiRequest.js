@@ -10,6 +10,7 @@ import {
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import useAxios from "./useAxios";
+import axios from "axios";
 
 //? Custom hook
 //? Eger uygulamanın her yerinde kullanmak için bazı fonksiyonlara ihtyaç varsa  ve bu fonksiyonlar içerisinde custom hook'ların ( useSelector, useDispatch,useNavigate etc.) kullanılması gerekiyorsa o Zaman çözüm Bu dosyayı custom hook'a çevirmektir.
@@ -17,6 +18,7 @@ import useAxios from "./useAxios";
 const useApiRequest = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
+  const { token } = useSelector((state) => state.auth);
   const { axiosToken, axiosPublic } = useAxios();
   // const { token } = useSelector((state) => state.auth)
   const login = async (userData) => {
@@ -56,7 +58,9 @@ const useApiRequest = () => {
   const logout = async () => {
     dispatch(fetchStart());
     try {
-      await axios(`${process.env.REACT_APP_BASE_URL}/auth/logout`);
+      await axios(`${process.env.REACT_APP_BASE_URL}/auth/logout`, {
+        headers: { Authorization: `Token ${token}` },
+      });
       dispatch(logoutSuccess());
     } catch (error) {
       dispatch(fetchFail());
