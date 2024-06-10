@@ -12,7 +12,7 @@ import Typography from "@mui/material/Typography";
 import Button from "@mui/material/Button";
 import { useSelector } from "react-redux";
 import useApiRequest from "../services/useApiRequest";
-// import MenuListComp from "../components/MenuListComp";
+import MenuListComp from "../components/MenuListComp";
 import { Outlet } from "react-router-dom";
 
 const drawerWidth = 200;
@@ -44,7 +44,7 @@ function Dashboard(props) {
     <div>
       <Toolbar />
       <Divider />
-      {/* <MenuListComp /> */}
+      <MenuListComp />
     </div>
   );
 
