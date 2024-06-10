@@ -56,10 +56,7 @@ const useApiRequest = () => {
   const logout = async () => {
     dispatch(fetchStart());
     try {
-      // await axios(`${process.env.REACT_APP_BASE_URL}/auth/logout`, {
-      //   headers: { Authorization: `Token ${token}` },
-      // })
-      await axiosToken.get("/auth/logout");
+      await axios(`${process.env.REACT_APP_BASE_URL}/auth/logout`);
       dispatch(logoutSuccess());
     } catch (error) {
       dispatch(fetchFail());
