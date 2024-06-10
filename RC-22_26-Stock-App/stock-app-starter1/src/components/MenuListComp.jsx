@@ -56,6 +56,8 @@ const MenuListComp = () => {
             disablePadding
             onClick={() => navigate(item.path)}
             sx={{
+              //? Burada iconlara ayrı class name ile özellik veririz.
+              //? Bulunduğumuz yer içerisindeki ... class'a demek için & işareti kullanırız.
               color: "white",
               "& .MuiSvgIcon-root": { color: "white" },
               "&:hover": { color: "red" },
