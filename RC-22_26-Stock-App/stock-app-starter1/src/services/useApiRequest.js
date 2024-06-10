@@ -1,41 +1,72 @@
-import axios from "axios";
+// import axios from "axios"
 import { toastErrorNotify, toastSuccessNotify } from "../helper/ToastNotify";
-import { fetchFail, fetchStart, loginSuccess } from "../features/authSlice";
-import { useDispatch } from "react-redux";
+import {
+  fetchFail,
+  fetchStart,
+  loginSuccess,
+  registerSuccess,
+  logoutSuccess,
+} from "../features/authSlice";
+import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
+import useAxios from "./useAxios";
 
-export const useApiRequest = () => {
+//? Custom hook
+//? Eger uygulamanın her yerinde kullanmak için bazı fonksiyonlara ihtyaç varsa  ve bu fonksiyonlar içerisinde custom hook'ların ( useSelector, useDispatch,useNavigate etc.) kullanılması gerekiyorsa o Zaman çözüm Bu dosyayı custom hook'a çevirmektir.
+
+const useApiRequest = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  //?  bu şekilde okuma yerine .env'de global bir state atarız.
+  const { axiosToken, axiosPublic } = useAxios();
+  // const { token } = useSelector((state) => state.auth)
   const login = async (userData) => {
-    //   const BASE_URL = "https://12138.fullstack.clarusway.com";
-    
-    
+    //   const BASE_URL = "https://10001.fullstack.clarusway.com"
+
     dispatch(fetchStart());
     try {
-      const data = await axios.post(
-        `${process.env.REACT_APP_BASE_URL}/auth/login`,
-        userData
-      );
+      // const { data } = await axios.post(
+      //   `${process.env.REACT_APP_BASE_URL}/auth/login`,
+      //   userData
+      // )
+      const { data } = await axiosPublic.post("/auth/login/", userData);
       dispatch(loginSuccess(data));
-      toastSuccessNotify("Login is success");
+      toastSuccessNotify("Login is success.");
       navigate("/stock");
     } catch (error) {
       dispatch(fetchFail());
-      toastErrorNotify("Login is nonstarter");
+      toastErrorNotify("Login unsuccess. Please check your information.");
       console.log(error);
     }
   };
 
-  const register = async () => {};
-  const logout = async () => {};
+  const register = async (userInfo) => {
+    dispatch(fetchStart());
+    try {
+      // const { data } = await axios.post(
+      //   `${process.env.REACT_APP_BASE_URL}/users/`,
+      //   userInfo
+      // )
+      const { data } = await axiosPublic.post("/users/", userInfo);
+      dispatch(registerSuccess(data));
+      navigate("/stock");
+    } catch (error) {
+      dispatch(fetchFail());
+    }
+  };
+  const logout = async () => {
+    dispatch(fetchStart());
+    try {
+      // await axios(`${process.env.REACT_APP_BASE_URL}/auth/logout`, {
+      //   headers: { Authorization: `Token ${token}` },
+      // })
+      await axiosToken.get("/auth/logout");
+      dispatch(logoutSuccess());
+    } catch (error) {
+      dispatch(fetchFail());
+    }
+  };
 
   return { login, register, logout };
 };
 
 export default useApiRequest;
-
-//__ Bu kodlar aslında bir react component'i değil, customHook değil. Burada DOM'a basılacak işlem değil yardımcı func yazarız.
-//__ Bu yüzden customHook kullanırız. JSX döndürme zorunluluğu yoktur. (useApiRequest altında yazarız tüm kodları)
-//__ Burada yazdığımız code'ların hepsini projenin istediğimiz yerde kullanmak asıl amacımızdır.
