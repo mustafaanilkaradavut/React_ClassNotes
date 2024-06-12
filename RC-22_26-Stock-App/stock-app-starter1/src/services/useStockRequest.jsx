@@ -1,4 +1,4 @@
-import { useDispatch, useDispatch } from "react-redux";
+import { useDispatch } from "react-redux";
 import useAxios from "./useAxios";
 
 const useStockRequest = () => {

@@ -1,46 +1,16 @@
 import { useEffect } from "react";
-// import useAxios from "../services/useAxios"
-import { useSelector } from "react-redux";
-import Typography from "@mui/material/Typography";
-import Button from "@mui/material/Button";
-import Grid from "@mui/material/Grid";
-
-// export const getFirms = async () => {
-//   try {
-//     const { data } = axiosToken("/firms")
-//     console.log(data)
-//   } catch (error) {
-//     console.log(error)
-//   }
-// }
+import useStockRequest from "../services/useStockRequest";
 
 const Firms = () => {
-  // const { axiosToken } = useAxios()
-  // const { getFirms, getSales } = useStockRequest()
-  const { firms } = useSelector((state) => state.stock);
+  const { getFirms } = useStockRequest();
+
+  //__ Bu kodu direk burada yazmamazın sebebi, başka yerlerde'de kullanmak için global'de yazıp dışarıya açarız.
 
   useEffect(() => {
-    // getFirms();
-    // getSales()
-    // getStock("sales")
-    // getStock("firms");
+    getFirms();
   }, []);
 
-  return (
-    <div>
-      <Typography variant="h4" color={"error"} mb={2}>
-        Firms
-      </Typography>
-
-      <Button variant="contained">New Firm</Button>
-
-      <Grid container gap={2} mt={3} justifyContent={"center"}>
-        {firms.map((firm) => (
-          <Grid item key={firm._id}></Grid>
-        ))}
-      </Grid>
-    </div>
-  );
+  return <div>Firms</div>;
 };
 
 export default Firms;
