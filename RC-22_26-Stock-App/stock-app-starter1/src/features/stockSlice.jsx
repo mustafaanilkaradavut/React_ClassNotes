@@ -18,13 +18,19 @@ const stockSlice = createSlice({
     fetchStart: (state) => {
       state.loading = true;
     },
-    getFirmsSuccess: (state, { payload }) => {
+    // getFirmsSuccess: (state, { payload }) => {
+    //   state.loading = false;
+    //   state.firms = payload;
+    // },
+    // getSalesSuccess: (state, { payload }) => {
+    //   state.loading = false;
+    //   state.sales = payload;
+    // },
+
+    //__ Yaptığımız işlemler genel olarak aynı olduğu için bu işlemler için GENERAL STATE yazdık.
+    getStockSuccess: (state, { payload }) => {
       state.loading = false;
-      state.firms = payload;
-    },
-    getSalesSuccess: (state, { payload }) => {
-      state.loading = false;
-      state.sales = payload;
+      state.??? = payload;
     },
     fetchFail: (state) => {
       state.loading = false;

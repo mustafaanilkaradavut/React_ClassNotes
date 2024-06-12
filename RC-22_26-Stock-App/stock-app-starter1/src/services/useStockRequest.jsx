@@ -1,6 +1,11 @@
 import { useDispatch } from "react-redux";
 import useAxios from "./useAxios";
-import { fetchFail, fetchStart, getFirmsSuccess } from "../features/stockSlice";
+import {
+  fetchFail,
+  fetchStart,
+  getFirmsSuccess,
+  getSalesSuccess,
+} from "../features/stockSlice";
 
 const useStockRequest = () => {
   const { axiosToken } = useAxios();
@@ -17,7 +22,20 @@ const useStockRequest = () => {
       console.log(error);
     }
   };
-  return { getFirms };
+
+  const getSales = async () => {
+    dispatch(fetchStart());
+    try {
+      const { data } = await axiosToken("/sales");
+      console.log(data);
+      dispatch(getSalesSuccess(data.data));
+    } catch (error) {
+      dispatch(fetchFail());
+      console.log(error);
+    }
+  };
+
+  return { getFirms, getSales };
 };
 
 export default useStockRequest;
