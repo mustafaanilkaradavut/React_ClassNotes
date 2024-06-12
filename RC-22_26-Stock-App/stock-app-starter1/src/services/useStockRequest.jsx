@@ -8,7 +8,7 @@ const useStockRequest = () => {
   const getFirms = async () => {
     //__ dispatch()
     try {
-      const { data } = axiosToken("/firms");
+      const { data } = await axiosToken("/firms");
       console.log(data);
       //__ dispatch()
     } catch (error) {
@@ -16,7 +16,7 @@ const useStockRequest = () => {
       console.log(error);
     }
   };
-  return getFirms;
+  return { getFirms };
 };
 
 export default useStockRequest;
