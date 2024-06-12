@@ -11,6 +11,7 @@ const Firms = () => {
     getFirms();
   }, []);
 
+  console.log(firms);
   return <div>Firms</div>;
 };
 
