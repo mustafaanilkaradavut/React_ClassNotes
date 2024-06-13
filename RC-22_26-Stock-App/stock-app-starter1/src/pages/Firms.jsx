@@ -1,6 +1,9 @@
 import { useEffect } from "react";
 import useStockRequest from "../services/useStockRequest";
 import { useSelector } from "react-redux";
+import Typography from "@mui/material/Typography";
+import Button from "@mui/material/Button";
+import Grid from "@mui/material/Grid";
 // import useAxios from "../services/useAxios";
 
 const Firms = () => {
@@ -16,8 +19,22 @@ const Firms = () => {
     getStock("firms");
   }, []);
 
-  console.log(firms);
-  return <div>Firms</div>;
+  // console.log(firms);
+  return (
+    <div>
+      <Typography variant="h6" color={"error"} mb={2}>
+        Firms
+      </Typography>
+
+      <Button variant="contained">New Firm</Button>
+
+      <Grid container>
+        {firms.map((firm) => (
+          <Grid item></Grid>
+        ))}
+      </Grid>
+    </div>
+  );
 };
 
 export default Firms;
