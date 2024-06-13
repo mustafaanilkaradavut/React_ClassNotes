@@ -50,8 +50,20 @@ const useStockRequest = () => {
     }
   };
 
+  const deleteStock = async (path = "firms", id) => {
+    dispatch(fetchStart());
+    try {
+      await axiosToken(`/${path}/${id}`);
+      getStock(path);
+      dispatch(getStockSuccess());
+    } catch (error) {
+      dispatch(fetchFail());
+      console.log(error);
+    }
+  };
+
   // return { getFirms, getSales};
-  return { getStock };
+  return { getStock, deleteStock };
 };
 
 export default useStockRequest;
