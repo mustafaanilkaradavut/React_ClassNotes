@@ -4,6 +4,7 @@ import { useSelector } from "react-redux";
 import Typography from "@mui/material/Typography";
 import Button from "@mui/material/Button";
 import Grid from "@mui/material/Grid";
+import FirmCard from "../components/FirmCard";
 // import useAxios from "../services/useAxios";
 
 const Firms = () => {
@@ -30,7 +31,9 @@ const Firms = () => {
 
       <Grid container>
         {firms.map((firm) => (
-          <Grid item></Grid>
+          <Grid item>
+            <FirmCard firm={firm} />
+          </Grid>
         ))}
       </Grid>
     </div>
