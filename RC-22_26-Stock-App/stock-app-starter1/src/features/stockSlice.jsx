@@ -28,9 +28,18 @@ const stockSlice = createSlice({
     // },
 
     //__ Yaptığımız işlemler genel olarak aynı olduğu için bu işlemler için GENERAL STATE yazdık.
-    getStockSuccess: (state, { payload }) => {
+    //.. path şurada yer almalı : action.payload.path
+
+    // getStockSuccess: (state, action) => {
+    //   state.loading = false;
+    //   state[action.payload.path] = action.payload.stockData;
+    // },
+
+    //__ Diğer bir kısa yöntem ;
+
+    getStockSuccess: (state, { payload: { path, stockData } }) => {
       state.loading = false;
-      state.??? = payload;
+      state[path] = stockData;
     },
     fetchFail: (state) => {
       state.loading = false;
@@ -39,7 +48,12 @@ const stockSlice = createSlice({
   },
 });
 
-export const { fetchFail, fetchStart, getFirmsSuccess, getSalesSuccess } =
-  stockSlice.actions;
+export const {
+  fetchFail,
+  fetchStart,
+  // getFirmsSuccess,
+  // getSalesSuccess,
+  getStockSuccess,
+} = stockSlice.actions;
 
 export default stockSlice.reducer;
