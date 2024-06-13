@@ -14,24 +14,25 @@ const Firms = () => {
 
   //__ Bu kodu direk burada yazmamazın sebebi, başka yerlerde'de kullanmak için global'de yazıp dışarıya açarız.
   const { firms } = useSelector((state) => state.stock);
+
   useEffect(() => {
-    // getFirms();
-    // getSales();
+    // getFirms()
+    // getSales()
+    // getStock("sales")
     getStock("firms");
   }, []);
 
-  // console.log(firms);
   return (
     <div>
-      <Typography variant="h6" color={"error"} mb={2}>
+      <Typography variant="h4" color={"error"} mb={2}>
         Firms
       </Typography>
 
       <Button variant="contained">New Firm</Button>
 
-      <Grid container>
+      <Grid container gap={2} mt={3} justifyContent={"center"}>
         {firms.map((firm) => (
-          <Grid item>
+          <Grid item key={firm._id}>
             <FirmCard firm={firm} />
           </Grid>
         ))}
