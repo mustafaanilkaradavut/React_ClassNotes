@@ -18,27 +18,28 @@ const style = {
   p: 4,
 };
 
-export default function FirmModal({ handleClose, open }) {
-  const [info, setInfo] = React.useState({
-    name: "",
-    phone: "",
-    image: "",
-    address: "",
-  });
+export default function FirmModal({ handleClose, open, info, setInfo }) {
+  // const [info, setInfo] = React.useState({
+  //   name: "",
+  //   phone: "",
+  //   image: "",
+  //   address: "",
+  // });
   // const [open, setOpen] = React.useState(false);
   // const handleOpen = () => setOpen(true);
   // const handleClose = () => setOpen(false);
   //__ Yukarıdaki set işlemlerini Firms.jsx'e taşırız.
 
-  //__ Open State değişince local state resetlenir. Formu sumbit etmeden çıkınca tekrar girdiğimizde bilgiler resetlenir
-  React.useEffect(() => {
-    setInfo({
-      name: "",
-      phone: "",
-      image: "",
-      address: "",
-    });
-  }, [open]);
+  //__ Open State değişince local state resetlenir. Formu sumbit etmeden çıkınca tekrar girdiğimizde bilgiler resetlenir.
+  //__ Bu yapı'yı pasife alıyoruz çünkü bu yapı bizi edit kısmında bilgileri çekerken engelliyor.
+  // React.useEffect(() => {
+  //   setInfo({
+  //     name: "",
+  //     phone: "",
+  //     image: "",
+  //     address: "",
+  //   });
+  // }, [open]);
 
   const { postStock } = useStockRequest();
 
