@@ -7,6 +7,7 @@ import {
   // getFirmsSuccess,
   // getSalesSuccess,
 } from "../features/stockSlice";
+import { toastErrorNotify, toastSuccessNotify } from "../helper/ToastNotify";
 
 const useStockRequest = () => {
   const { axiosToken } = useAxios();
@@ -62,8 +63,22 @@ const useStockRequest = () => {
     }
   };
 
+  //__ Bu aşağıdaki işlemi generic yazarız. Çünkü bir çok sayfada kullanmamız gerekecek.
+  const postStock = async (path = "firms", info) => {
+    dispatch(fetchStart());
+    try {
+      await axiosToken.delete(`/${path}`);
+      getStock(path);
+      toastSuccessNotify(`${path} added successfully`);
+    } catch (error) {
+      dispatch(fetchFail());
+      toastErrorNotify(`${path} didn't add`);
+      console.log(error);
+    }
+  };
+
   // return { getFirms, getSales};
-  return { getStock, deleteStock };
+  return { getStock, deleteStock, postStock };
 };
 
 export default useStockRequest;

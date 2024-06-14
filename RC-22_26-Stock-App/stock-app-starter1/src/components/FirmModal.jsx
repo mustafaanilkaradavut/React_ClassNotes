@@ -4,6 +4,7 @@ import Typography from "@mui/material/Typography";
 import Box from "@mui/material/Box";
 import TextField from "@mui/material/TextField";
 import Modal from "@mui/material/Modal";
+import useStockRequest from "../services/useStockRequest";
 
 const style = {
   position: "absolute",
@@ -29,10 +30,22 @@ export default function FirmModal({ handleClose, open }) {
   // const handleClose = () => setOpen(false);
   //__ Yukarıdaki set işlemlerini Firms.jsx'e taşırız.
 
+  const { postStock } = useStockRequest();
+
   const handleChange = (e) => {
     setInfo({ ...info, [e.target.name]: e.target.value });
     //__ Objeyi açarız ve value değiştiririz.
   };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    postStock("firms", info);
+    setInfo({ name: "", phone: "", address: "", image: "" });
+    handleClose();
+
+    //__   Post request (post firm) => Verileri sil => Modal'ı kapat
+  };
+
   console.log(info);
   return (
     <div>
@@ -44,7 +57,8 @@ export default function FirmModal({ handleClose, open }) {
         <Box sx={style}>
           <Box
             sx={{ display: "flex", flexDirection: "column", gap: 2 }}
-            component={"form"}>
+            component={"form"}
+            onSubmit={handleSubmit}>
             <TextField
               label="Email"
               name="name"
