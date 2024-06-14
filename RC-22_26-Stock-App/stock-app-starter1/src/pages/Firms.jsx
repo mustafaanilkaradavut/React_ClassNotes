@@ -1,4 +1,5 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
+import * as React from "react";
 import useStockRequest from "../services/useStockRequest";
 import { useSelector } from "react-redux";
 import Typography from "@mui/material/Typography";
@@ -15,6 +16,9 @@ const Firms = () => {
 
   //__ Bu kodu direk burada yazmamazın sebebi, başka yerlerde'de kullanmak için global'de yazıp dışarıya açarız.
   const { firms } = useSelector((state) => state.stock);
+  const [open, setOpen] = React.useState(false);
+  const handleOpen = () => setOpen(true);
+  const handleClose = () => setOpen(false);
 
   useEffect(() => {
     // getFirms()
@@ -28,11 +32,11 @@ const Firms = () => {
       <Typography variant="h4" color={"error"} mb={2}>
         Firms
       </Typography>
-
-      <Button variant="contained">New Firm</Button>
-
-      <FirmModal />
-
+      <Button variant="contained" onClick={handleOpen}>
+        {/* Burada ki handleOpen işlemini "Lifting State Up" ile işleriz. */}
+        New Firm
+      </Button>
+      <FirmModal handleClose={handleClose} open={open} />
       <Grid container gap={2} mt={3} justifyContent={"center"}>
         {firms.map((firm) => (
           <Grid item key={firm._id}>
