@@ -29,6 +29,11 @@ export default function FirmModal({ handleClose, open }) {
   // const handleClose = () => setOpen(false);
   //__ Yukarıdaki set işlemlerini Firms.jsx'e taşırız.
 
+  const handleChange = (e) => {
+    setInfo({ ...info, [e.target.name]: e.target.value });
+    //__ Objeyi açarız ve value değiştiririz.
+  };
+  console.log(info);
   return (
     <div>
       <Modal
@@ -47,6 +52,7 @@ export default function FirmModal({ handleClose, open }) {
               type="text"
               variant="outlined"
               value={info.name}
+              onChange={handleChange}
             />
             <TextField
               label="Phone"
@@ -55,6 +61,7 @@ export default function FirmModal({ handleClose, open }) {
               type="gsm"
               variant="outlined"
               value={info.phone}
+              onChange={handleChange}
             />
             <TextField
               label="Address"
@@ -63,6 +70,7 @@ export default function FirmModal({ handleClose, open }) {
               type="text"
               variant="outlined"
               value={info.image}
+              onChange={handleChange}
             />
             <TextField
               label="Image"
@@ -71,6 +79,7 @@ export default function FirmModal({ handleClose, open }) {
               type="url"
               variant="outlined"
               value={info.image}
+              onChange={handleChange}
             />
             <Button variant="contained" type="submit">
               ADD NEW FIRM
