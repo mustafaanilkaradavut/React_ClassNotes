@@ -1,7 +1,8 @@
 import * as React from "react";
-import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
+import Box from "@mui/material/Box";
+import TextField from "@mui/material/TextField";
 import Modal from "@mui/material/Modal";
 
 const style = {
@@ -17,6 +18,12 @@ const style = {
 };
 
 export default function FirmModal({ handleClose, open }) {
+  const [info, setInfo] = React.useState({
+    name: "",
+    phone: "",
+    address: "",
+    image: "",
+  });
   // const [open, setOpen] = React.useState(false);
   // const handleOpen = () => setOpen(true);
   // const handleClose = () => setOpen(false);
@@ -30,12 +37,45 @@ export default function FirmModal({ handleClose, open }) {
         aria-labelledby="modal-modal-title"
         aria-describedby="modal-modal-description">
         <Box sx={style}>
-          <Typography id="modal-modal-title" variant="h6" component="h2">
-            Text in a modal
-          </Typography>
-          <Typography id="modal-modal-description" sx={{ mt: 2 }}>
-            Duis mollis, est non commodo luctus, nisi erat porttitor ligula.
-          </Typography>
+          <Box
+            sx={{ display: "flex", flexDirection: "column", gap: 2 }}
+            component={"form"}>
+            <TextField
+              label="Email"
+              name="name"
+              id="name"
+              type="text"
+              variant="outlined"
+              value={info.name}
+            />
+            <TextField
+              label="Phone"
+              name="phone"
+              id="phone"
+              type="gsm"
+              variant="outlined"
+              value={info.phone}
+            />
+            <TextField
+              label="Address"
+              name="address"
+              id="address"
+              type="text"
+              variant="outlined"
+              value={info.image}
+            />
+            <TextField
+              label="Image"
+              name="image"
+              id="image"
+              type="url"
+              variant="outlined"
+              value={info.image}
+            />
+            <Button variant="contained" type="submit">
+              ADD NEW FIRM
+            </Button>
+          </Box>
         </Box>
       </Modal>
     </div>
