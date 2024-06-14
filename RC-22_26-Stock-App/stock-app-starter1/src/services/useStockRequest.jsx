@@ -67,9 +67,9 @@ const useStockRequest = () => {
   const postStock = async (path = "firms", info) => {
     dispatch(fetchStart());
     try {
-      await axiosToken.delete(`/${path}`);
+      await axiosToken.post(`/${path}/`, info);
       getStock(path);
-      toastSuccessNotify(`${path} added successfully`);
+      toastSuccessNotify(`${path} added successfully.`);
     } catch (error) {
       dispatch(fetchFail());
       toastErrorNotify(`${path} didn't add`);

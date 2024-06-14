@@ -22,13 +22,23 @@ export default function FirmModal({ handleClose, open }) {
   const [info, setInfo] = React.useState({
     name: "",
     phone: "",
-    address: "",
     image: "",
+    address: "",
   });
   // const [open, setOpen] = React.useState(false);
   // const handleOpen = () => setOpen(true);
   // const handleClose = () => setOpen(false);
   //__ Yukarıdaki set işlemlerini Firms.jsx'e taşırız.
+
+  //__ Open State değişince local state resetlenir. Formu sumbit etmeden çıkınca tekrar girdiğimizde bilgiler resetlenir
+  React.useEffect(() => {
+    setInfo({
+      name: "",
+      phone: "",
+      image: "",
+      address: "",
+    });
+  }, [open]);
 
   const { postStock } = useStockRequest();
 
@@ -39,14 +49,17 @@ export default function FirmModal({ handleClose, open }) {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    //? post firm işlemi
     postStock("firms", info);
-    setInfo({ name: "", phone: "", address: "", image: "" });
+    //? local state sıfırlama
+    // setInfo({ name: "", phone: "", address: "", image: "" });
+    //? modal kapama
     handleClose();
 
     //__   Post request (post firm) => Verileri sil => Modal'ı kapat
   };
 
-  console.log(info);
+  // console.log(info);
   return (
     <div>
       <Modal
@@ -60,13 +73,14 @@ export default function FirmModal({ handleClose, open }) {
             component={"form"}
             onSubmit={handleSubmit}>
             <TextField
-              label="Email"
+              label="Firm Name"
               name="name"
               id="name"
               type="text"
               variant="outlined"
               value={info.name}
               onChange={handleChange}
+              required
             />
             <TextField
               label="Phone"
@@ -76,6 +90,7 @@ export default function FirmModal({ handleClose, open }) {
               variant="outlined"
               value={info.phone}
               onChange={handleChange}
+              required
             />
             <TextField
               label="Address"
@@ -83,8 +98,9 @@ export default function FirmModal({ handleClose, open }) {
               id="address"
               type="text"
               variant="outlined"
-              value={info.image}
+              value={info.address}
               onChange={handleChange}
+              required
             />
             <TextField
               label="Image"
@@ -94,6 +110,7 @@ export default function FirmModal({ handleClose, open }) {
               variant="outlined"
               value={info.image}
               onChange={handleChange}
+              required
             />
             <Button variant="contained" type="submit">
               ADD NEW FIRM
