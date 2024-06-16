@@ -9,6 +9,8 @@ export default function ProductTable() {
   const { products } = useSelector((state) => state.stock);
 
   const getRowId = (row) => row._id;
+  //__ MUI Data Grid "_id" yi tanımlayamadığı için, tanımlanmasını kolaylaştıracak ve sağlayacak bir kod yazarız.
+  //__ Bunu return kısmında kullanırız.
 
   const columns = [
     { field: "_id", headerName: "#", minWidth: 150, flex: 1.4 },
