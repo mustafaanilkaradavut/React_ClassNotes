@@ -55,10 +55,12 @@ const useStockRequest = () => {
     dispatch(fetchStart());
     try {
       await axiosToken.delete(`/${path}/${id}`);
+      toastSuccessNotify(`${path} deleted successfully.`);
       getStock(path);
       dispatch(getStockSuccess());
     } catch (error) {
       dispatch(fetchFail());
+      toastErrorNotify(`${path} didn't deleted`);
       console.log(error);
     }
   };
