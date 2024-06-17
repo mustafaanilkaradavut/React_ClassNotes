@@ -5,7 +5,7 @@ import Stack from "@mui/material/Stack";
 export const ErrorMessage = () => {
   return (
     <Alert sx={{ mt: 3 }} severity="error">
-      V
+      Data hasn't been get.
     </Alert>
   );
 };
@@ -13,7 +13,7 @@ export const ErrorMessage = () => {
 export const NoDataMessage = () => {
   return (
     <Alert sx={{ mt: 3 }} severity="warning">
-      G
+      That's not find anything for showing
     </Alert>
   );
 };
