@@ -9,6 +9,7 @@ import InputLabel from "@mui/material/InputLabel";
 import MenuItem from "@mui/material/MenuItem";
 import FormControl from "@mui/material/FormControl";
 import Select from "@mui/material/Select";
+import { useSelector } from "react-redux";
 
 export default function ProductModal({ handleClose, open, info, setInfo }) {
   // const [info, setInfo] = React.useState({
@@ -34,6 +35,7 @@ export default function ProductModal({ handleClose, open, info, setInfo }) {
   // }, [open]);
 
   const { postStock } = useStockRequest();
+  const { categories, brands } = useSelector((state) => state.stock);
 
   const handleChange = (e) => {
     setInfo({ ...info, [e.target.name]: e.target.value });
