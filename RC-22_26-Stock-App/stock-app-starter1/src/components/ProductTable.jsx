@@ -33,6 +33,7 @@ export default function ProductTable() {
       width: 150,
       flex: 1.2,
       // editable: true,
+      //__ Editable özelliği sayesinde kullanıcı tıkladığı zaman veri üzerinde değişiklik yapabilir.
       valueGetter: (value) => value?.name,
     },
     {
@@ -72,13 +73,17 @@ export default function ProductTable() {
     <Box sx={{ width: "100%", mt: 3 }}>
       <DataGrid
         autoHeight
+        //__ useSelector ile global'den product'su çektik ve rows'ta kullandık.
+        //__ Row ve colums verilerimizi içerir. autoHeight ise MUI Data Grid özelliğidir.
         rows={products}
         columns={columns}
         pageSizeOptions={[5, 10, 25, 50, 100]}
         checkboxSelection
         disableRowSelectionOnClick
         getRowId={getRowId}
+        //__ getRowId yukarıda yapılan atama sebebiyle row'daki id'nin tanımlamasını yapıyoruz.
         slots={{ toolbar: GridToolbar }}
+        //__ MUI'nin bu özelliği ile toolbar otomatik olarak gelip çalışıyor.
       />
     </Box>
   );
