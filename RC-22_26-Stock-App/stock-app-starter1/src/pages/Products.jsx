@@ -8,28 +8,24 @@ import Button from "@mui/material/Button";
 import ProductTable from "../components/ProductTable";
 import ProductModal from "../components/ProductModal";
 
-const Firms = () => {
+const Products = () => {
   const { getStock } = useStockRequest();
 
   //__ Bu kodu direk burada yazmamazın sebebi, başka yerlerde'de kullanmak için global'de yazıp dışarıya açarız.
   const [open, setOpen] = React.useState(false);
   const handleOpen = () => setOpen(true);
+
+  const initialState = { categoryId: "", brandId: "", name: "" };
+
   const [info, setInfo] = useState({
+    categoryId: "",
+    brandId: "",
     name: "",
-    phone: "",
-    image: "",
-    address: "",
   });
   const handleClose = () => {
     setOpen(false);
-    setInfo({
-      name: "",
-      phone: "",
-      image: "",
-      address: "",
-    });
+    setInfo(initialState);
   };
-
   useEffect(() => {
     getStock("products");
   }, []);
@@ -54,4 +50,4 @@ const Firms = () => {
   );
 };
 
-export default Firms;
+export default Products;
