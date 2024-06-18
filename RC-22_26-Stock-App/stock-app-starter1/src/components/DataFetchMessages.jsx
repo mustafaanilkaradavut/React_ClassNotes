@@ -18,6 +18,7 @@ export const NoDataMessage = () => {
   );
 };
 
+//__ Burada CardSkeleton hangi card verilirse verirsin sarmalasın istiyoruz o yüzden children veririz.
 export const CardSkeleton = ({ children }) => {
   return (
     <Stack spacing={1} sx={{ mt: 3 }} alignItems={"center"}>

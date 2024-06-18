@@ -7,7 +7,8 @@ import Button from "@mui/material/Button";
 import Grid from "@mui/material/Grid";
 import FirmCard from "../components/FirmCard";
 import FirmModal from "../components/FirmModal";
-import TableSkeleton, {
+import {
+  CardSkeleton,
   ErrorMessage,
   NoDataMessage,
 } from "../components/DataFetchMessages";
@@ -55,7 +56,12 @@ const Firms = () => {
         New Firm
       </Button>
 
-      {loading && <TableSkeleton />}
+      {loading && (
+        <CardSkeleton>
+          {" "}
+          <FirmCard />{" "}
+        </CardSkeleton>
+      )}
       {error && <ErrorMessage />}
       {!error && !firms.length && <NoDataMessage />}
       {!error && !loading && firms.length > 0 && (
