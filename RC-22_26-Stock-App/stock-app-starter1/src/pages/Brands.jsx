@@ -33,7 +33,8 @@ const Brands = () => {
         Brands
       </Typography>
 
-      <Button variant="contained" onClick={handleOpen} disabled={error}>
+      {/* <Button variant="contained" onClick={handleOpen} disabled={error}> */}
+      <Button variant="contained" onClick={handleOpen}>
         New Brand
       </Button>
 

@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
 import * as React from "react";
 import useStockRequest from "../services/useStockRequest";
-import { useSelector } from "react-redux";
 import Typography from "@mui/material/Typography";
 import Button from "@mui/material/Button";
 

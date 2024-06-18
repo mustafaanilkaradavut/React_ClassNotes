@@ -35,7 +35,7 @@ export default function ProductModal({ handleClose, open, info, setInfo }) {
   // }, [open]);
 
   const { postStock } = useStockRequest();
-  const { categories, brands } = useSelector((state) => state.stock);
+  const { categories, brands } = useSelector((state) => state.stock); //__ Come from Products.jsx (useEffect)
 
   const handleChange = (e) => {
     setInfo({ ...info, [e.target.name]: e.target.value });
@@ -50,8 +50,8 @@ export default function ProductModal({ handleClose, open, info, setInfo }) {
     //   putStock("firms", info);
     // } else {
 
-    //? post firm işlemi
-    postStock("firms", info);
+    //? post products işlemi
+    postStock("products", info);
 
     //? local state sıfırlama
     // setInfo({ name: "", phone: "", address: "", image: "" });
@@ -82,7 +82,7 @@ export default function ProductModal({ handleClose, open, info, setInfo }) {
                 id="categoryId"
                 name="categoryId"
                 label="Categories"
-                value={info.categoryId}
+                value={info.brandId}
                 onChange={handleChange}
                 required>
                 {categories.map((item) => (
