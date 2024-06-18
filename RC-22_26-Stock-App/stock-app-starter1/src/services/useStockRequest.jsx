@@ -46,6 +46,7 @@ const useStockRequest = () => {
       const stockData = data.data;
       dispatch(getStockSuccess({ stockData, path }));
     } catch (error) {
+      toastErrorNotify(`${path} data cannot get`);
       dispatch(fetchFail());
       console.log(error);
     }
