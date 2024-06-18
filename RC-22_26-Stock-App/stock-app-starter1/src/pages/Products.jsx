@@ -6,11 +6,15 @@ import Button from "@mui/material/Button";
 import ProductTable from "../components/ProductTable";
 import ProductModal from "../components/ProductModal";
 import { useSelector } from "react-redux";
-import TableSkeleton, { ErrorMessage } from "../components/DataFetchMessages";
+import TableSkeleton, {
+  ErrorMessage,
+  NoDataMessage,
+} from "../components/DataFetchMessages";
 
 const Products = () => {
   const { getStock } = useStockRequest();
   const { error, loading } = useSelector((state) => state.stock);
+  const { products } = useSelector((state) => state.stock);
 
   //__ Bu kodu direk burada yazmamazın sebebi, başka yerlerde'de kullanmak için global'de yazıp dışarıya açarız.
   const [open, setOpen] = React.useState(false);
@@ -49,7 +53,8 @@ const Products = () => {
 
       {loading && <TableSkeleton />}
       {error && <ErrorMessage />}
-      {!error && !loading && <ProductTable />}
+      {!error && !loading && products.length > 0 && <ProductTable />}
+      {!error && !products.length && <NoDataMessage />}
 
       <ProductModal
         handleClose={handleClose}
