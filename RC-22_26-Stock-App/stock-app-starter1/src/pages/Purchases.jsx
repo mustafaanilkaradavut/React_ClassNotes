@@ -7,7 +7,7 @@ import TableSkeleton, { NoDataMessage } from "../components/DataFetchMessages";
 import { useSelector } from "react-redux";
 
 const Purchases = () => {
-  const { getStock, getProPurBraFirmStock } = useStockRequest();
+  const { getProPurBraFirmStock } = useStockRequest();
   const { error, loading, purchases } = useSelector((state) => state.stock);
 
   const [open, setOpen] = useState(false);
