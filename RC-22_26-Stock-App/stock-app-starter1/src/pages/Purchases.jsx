@@ -3,10 +3,7 @@ import useStockRequest from "../services/useStockRequest";
 import PurchaseModal from "../components/PurchaseModal";
 import PurchaseTable from "../components/PurchaseTable";
 import { Button, Container } from "@mui/material";
-import TableSkeleton, {
-  ErrorMessage,
-  NoDataMessage,
-} from "../components/DataFetchMessages";
+import TableSkeleton, { NoDataMessage } from "../components/DataFetchMessages";
 import { useSelector } from "react-redux";
 
 const Purchases = () => {
