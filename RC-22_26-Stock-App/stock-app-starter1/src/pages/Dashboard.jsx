@@ -5,6 +5,7 @@ import CssBaseline from "@mui/material/CssBaseline";
 import Divider from "@mui/material/Divider";
 import Drawer from "@mui/material/Drawer";
 import IconButton from "@mui/material/IconButton";
+
 import MenuIcon from "@mui/icons-material/Menu";
 import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
@@ -84,7 +85,6 @@ function Dashboard(props) {
         sx={{ width: { sm: drawerWidth }, flexShrink: { sm: 0 } }}
         aria-label="mailbox folders">
         {/* The implementation can be swapped with js to avoid SEO duplication of links. */}
-
         <Drawer
           container={container}
           variant="temporary"
@@ -126,7 +126,6 @@ function Dashboard(props) {
           width: { sm: `calc(100% - ${drawerWidth}px)` },
         }}>
         <Toolbar />
-        {/* Nested yapıda olduğu için outlet yerine AppRouter kısmında aynı alanda yer alan kısmı basarız. */}
         <Outlet />
       </Box>
     </Box>
