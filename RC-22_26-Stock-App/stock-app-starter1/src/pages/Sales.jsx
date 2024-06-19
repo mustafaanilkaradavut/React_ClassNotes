@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import useStockRequest from "../services/useStockRequest";
-import { Button, Container } from "@mui/material";
+import { Button, Container, Typography } from "@mui/material";
 import SaleModal from "../components/SaleModal";
 import SaleTable from "../components/SaleTable";
 import TableSkeleton, {
@@ -31,24 +31,29 @@ const Sales = () => {
   }, []); // eslint-disable-line
 
   return (
-    <Container maxWidth="xl">
-      <Button variant="contained" onClick={handleOpen}>
-        New Sale
-      </Button>
+    <Container maxWidth="xl ">
+      <div>
+        <Typography variant="h4" color={"error"} mb={2}>
+          Sales
+        </Typography>
+        <Button variant="contained" onClick={handleOpen}>
+          New Sale
+        </Button>
 
-      {loading && <TableSkeleton />}
-      {!loading && !sales?.length && <NoDataMessage />}
+        {loading && <TableSkeleton />}
+        {!loading && !sales?.length && <NoDataMessage />}
 
-      {!loading && sales?.length > 0 && (
-        <SaleTable setInfo={setInfo} handleOpen={handleOpen} />
-      )}
+        {!loading && sales?.length > 0 && (
+          <SaleTable setInfo={setInfo} handleOpen={handleOpen} />
+        )}
 
-      <SaleModal
-        open={open}
-        handleClose={handleClose}
-        info={info}
-        setInfo={setInfo}
-      />
+        <SaleModal
+          open={open}
+          handleClose={handleClose}
+          info={info}
+          setInfo={setInfo}
+        />
+      </div>
     </Container>
   );
 };

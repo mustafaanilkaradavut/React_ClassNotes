@@ -6,10 +6,7 @@ import Button from "@mui/material/Button";
 import ProductTable from "../components/ProductTable";
 import ProductModal from "../components/ProductModal";
 import { useSelector } from "react-redux";
-import TableSkeleton, {
-  ErrorMessage,
-  NoDataMessage,
-} from "../components/DataFetchMessages";
+import TableSkeleton, { NoDataMessage } from "../components/DataFetchMessages";
 
 const Products = () => {
   const { getStock } = useStockRequest();
@@ -52,7 +49,6 @@ const Products = () => {
       </Button>
 
       {loading && <TableSkeleton />}
-      {error && <ErrorMessage />}
       {!error && !loading && products.length > 0 && <ProductTable />}
       {!error && !products.length && <NoDataMessage />}
 
