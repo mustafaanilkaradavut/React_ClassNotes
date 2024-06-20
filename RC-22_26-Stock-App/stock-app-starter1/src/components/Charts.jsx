@@ -1,4 +1,4 @@
-// import { AreaChart } from "@tremor/react";
+import { AreaChart } from "@tremor/react";
 import { useSelector } from "react-redux";
 
 const dataFormatter = (number) =>
@@ -19,7 +19,7 @@ const Charts = () => {
   console.log(salesData);
   return (
     <>
-      {/* <AreaChart
+      <AreaChart
         className="h-80"
         data={salesData}
         index="date"
@@ -27,9 +27,9 @@ const Charts = () => {
         colors={["indigo"]}
         valueFormatter={dataFormatter}
         yAxisWidth={60}
-      /> */}
+      />
 
-      {/* <AreaChart
+      <AreaChart
         className="h-80"
         data={purchasesData}
         index="date"
@@ -37,7 +37,7 @@ const Charts = () => {
         colors={["red"]}
         valueFormatter={dataFormatter}
         yAxisWidth={60}
-      /> */}
+      />
     </>
   );
 };
