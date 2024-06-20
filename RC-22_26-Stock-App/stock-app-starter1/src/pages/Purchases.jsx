@@ -2,12 +2,12 @@ import { useEffect, useState } from "react";
 import useStockRequest from "../services/useStockRequest";
 import PurchaseModal from "../components/PurchaseModal";
 import PurchaseTable from "../components/PurchaseTable";
-import { Button, Container } from "@mui/material";
+import { Button, Container, Typography } from "@mui/material";
 import TableSkeleton, { NoDataMessage } from "../components/DataFetchMessages";
 import { useSelector } from "react-redux";
 
 const Purchases = () => {
-  const { getProPurBraFirmStock } = useStockRequest();
+  const { fetchProPurBraFirmStock } = useStockRequest();
   const { error, loading, purchases } = useSelector((state) => state.stock);
 
   const [open, setOpen] = useState(false);
@@ -32,11 +32,14 @@ const Purchases = () => {
     // getStock("purchases")
     // getStock("brands")
     // getStock("firms")
-    getProPurBraFirmStock();
-  }, []); // eslint-disable-line
+    fetchProPurBraFirmStock();
+  }, [fetchProPurBraFirmStock]); // eslint-disable-line
 
   return (
-    <Container maxWidth="xl">
+    <Container maxWidth>
+      <Typography variant="h4" color={"error"} mb={2}>
+        Purchase
+      </Typography>
       <Button variant="contained" onClick={handleOpen}>
         New Purchase
       </Button>

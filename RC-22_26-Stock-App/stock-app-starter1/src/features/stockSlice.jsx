@@ -1,4 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
+import axios from "axios";
 
 const initialState = {
   purchases: [],
@@ -68,5 +69,26 @@ export const {
   getStockSuccess,
   getProPurBraFirmSuccess,
 } = stockSlice.actions;
+
+export const getProPurBraFirmStock = () => async (dispatch) => {
+  dispatch(fetchStart());
+  try {
+    const [pro, pur, bra, fir] = await Promise.all([
+      axios.get("/products"),
+      axios.get("/purchases"),
+      axios.get("/brands"),
+      axios.get("/firms"),
+    ]);
+    const products = pro?.data?.data;
+    const purchases = pur?.data?.data;
+    const brands = bra?.data?.data;
+    const firms = fir?.data?.data;
+
+    dispatch(getProPurBraFirmSuccess({ products, purchases, brands, firms }));
+  } catch (error) {
+    dispatch(fetchFail());
+    console.error(error);
+  }
+};
 
 export default stockSlice.reducer;

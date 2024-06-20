@@ -1,5 +1,6 @@
 import { useDispatch } from "react-redux";
 import useAxios from "./useAxios";
+import { useCallback } from "react";
 import {
   fetchFail,
   fetchStart,
@@ -8,6 +9,7 @@ import {
   // getSalesSuccess,
 } from "../features/stockSlice";
 import { toastErrorNotify, toastSuccessNotify } from "../helper/ToastNotify";
+import { getProPurBraFirmStock } from "../features/stockSlice";
 
 const useStockRequest = () => {
   const { axiosToken } = useAxios();
@@ -91,29 +93,18 @@ const useStockRequest = () => {
     }
   };
 
-  const getProPurBraFirmStock = async () => {
-    dispatch(fetchStart());
-    try {
-      const [pro, pur, bra, fir] = await Promise.all([
-        axiosToken("/products"),
-        axiosToken("/purchases"),
-        axiosToken("/brands"),
-        axiosToken("/firms"),
-      ]);
-      const products = pro?.data?.data;
-      const purchases = pur?.data?.data;
-      const brands = bra?.data?.data;
-      const firms = fir?.data?.data;
-
-      dispatch(getProPurBraFirmStock({ products, purchases, brands, firms }));
-    } catch (error) {
-      dispatch(fetchFail());
-      console.log(error);
-    }
-  };
+  const fetchProPurBraFirmStock = useCallback(() => {
+    dispatch(getProPurBraFirmStock());
+  }, [dispatch]);
 
   // return { getFirms, getSales};
-  return { getStock, deleteStock, postStock, putStock, getProPurBraFirmStock };
+  return {
+    getStock,
+    deleteStock,
+    postStock,
+    putStock,
+    fetchProPurBraFirmStock,
+  };
 };
 
 export default useStockRequest;

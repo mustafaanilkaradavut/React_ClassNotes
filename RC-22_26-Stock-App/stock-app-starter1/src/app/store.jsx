@@ -13,6 +13,7 @@ import {
 } from "redux-persist";
 import storage from "redux-persist/lib/storage"; // defaults to localStorage for web
 // import stroge from "redux-persist/lib/strorage/session" //__ session stroga
+import { thunk } from "redux-thunk";
 
 const persistConfig = {
   key: "root",
@@ -33,7 +34,7 @@ const store = configureStore({
       serializableCheck: {
         ignoredActions: [FLUSH, REHYDRATE, PAUSE, REGISTER, PURGE, PERSIST],
       },
-    }),
+    }).concat(thunk),
   devTools: process.env.NODE_ENV !== "production",
 });
 
