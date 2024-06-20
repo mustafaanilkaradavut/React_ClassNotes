@@ -13,6 +13,7 @@ const KPICards = () => {
   const { sales, purchases } = useSelector((state) => state.stock);
 
   const totalSales = sales?.reduce((acc, sale) => acc + sale.amount, 0);
+  //__ Sale.js içerisinde dolaş, her bir sale içerisinde bulunan amount değerini al ve ekleyerek devam et demiş oluyoruz.
 
   const totalPurchases = purchases?.reduce(
     (acc, purchase) => acc + purchase.amount,
@@ -25,6 +26,7 @@ const KPICards = () => {
       title: "Sales",
       icon: <PaidIcon sx={{ fontSize: "1.8rem" }} />,
       amount: "₺" + totalSales.toLocaleString("tr-TR"),
+      //__ toLocaleString numberlaştırıp formatlaştırmamıza yarar.
       color: deepPurple[700],
       bgColor: deepPurple[100],
     },
