@@ -1,9 +1,7 @@
-import React from 'react'
+import React from "react";
 
 const TaxComp = () => {
-    return (
-        <div>TaxComp</div>
-    )
-}
+  return <div>TaxComp</div>;
+};
 
-export default TaxComp
+export default TaxComp;
