@@ -1,11 +1,24 @@
-console.log("Hello World");
+// console.log("Hello World");
 
-let x = 5;
+// let x = 5;
 
-//* Hello Typescript
+// //* Hello Typescript
 
-let y = "Hello";
+// let y = "Hello";
 
 //? Buradaki hata JS için hata değil string ataması Typescriptte hata olarak karşımıza çıkar. Çünkü number ataması yapmıştık.
 
-const z = (a: any, b: any) => a + b;
+//.. Type Annotation
+// const z = (a: any, b: any) => a + b;
+// let a: number = 5;
+// a = "Hello";
+// a = false;
+// let b: string = "Hello";
+// b = 2;
+// let c = false;
+// c = true;
+// c = 5;
+// c = "str";
+// console.log(c);
+
+
