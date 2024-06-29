@@ -21,4 +21,14 @@
 // c = "str";
 // console.log(c);
 
+//.. Arrays
+
+let num: number[] = [1, 2, 3];
+let num2: Array<string> = ["a", "b", "c"]; //* Generic Array Definition
+// let num: number[] = [1, 2, 3, "a"];  hata alırız.
+
+num.push(4);
+// num.push("4");  hata alırız.
+
+let emptyArray: string[] = []; //* Empty Array Definition
 
