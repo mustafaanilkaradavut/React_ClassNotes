@@ -29,6 +29,16 @@ let num2: Array<string> = ["a", "b", "c"]; //* Generic Array Definition
 
 num.push(4);
 // num.push("4");  hata alırız.
-
 let emptyArray: string[] = []; //* Empty Array Definition
 
+//.. Tuples
+
+let myTuple: [number, boolean, string];
+myTuple = [1, true, "admin"];
+myTuple = [3.14, false, "circle"];
+myTuple.push(2); //! No error
+
+let myTuple2: [number, string];
+myTuple2 = [0, "user"];
+myTuple2.push(999);
+// myTuple2.push(false);  //! Error, Boolean doesn't definition
