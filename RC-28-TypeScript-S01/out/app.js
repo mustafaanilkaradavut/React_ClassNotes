@@ -1,12 +1,7 @@
 "use strict";
-let num = [1, 2, 3];
-let num2 = ["a", "b", "c"];
-num.push(4);
-let emptyArray = [];
-let myTuple;
-myTuple = [1, true, "admin"];
-myTuple = [3.14, false, "circle"];
-myTuple.push(2);
-let myTuple2;
-myTuple2 = [0, "user"];
-myTuple2.push(999);
+let myTuple3;
+myTuple3 = [
+    [1, "jhon"],
+    [2, "smith"],
+];
+myTuple3.push([3, "Jane"]);
