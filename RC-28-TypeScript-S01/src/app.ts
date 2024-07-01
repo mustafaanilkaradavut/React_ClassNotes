@@ -132,11 +132,11 @@ increase();
 
 //.. Never (Hiç bir zaman geri dönüşü olmayacak)
 
-function endessLoop(): never {
-  while (true) {
-    console.log("Using Never Type");
-  }
-}
+// function endessLoop(): never {
+//   while (true) {
+//     console.log("Using Never Type");
+//   }
+// }
 //! Bunu çağırdığımızda kodumuz ve browser sonsuz döngüye girer ve bilgisayarımızı kitler.
 
 //.. Union Type
@@ -159,7 +159,53 @@ function checkNumber(n: string | number): void {
     console.log(n.length);
   }
 }
-
 checkNumber(2);
 checkNumber("Type Narrowing");
+
+//.. Type Aliases
+
+type NewType = number | string;
+let h: NewType = 3;
+
+h = "Hello, Type Aliases";
+
+// h = false; //! Error
+
+let k: NewType = "Hi There !";
+
+//? Objects
+
+const car: {
+  make: string;
+  modal: string;
+  year: number;
+  readonly lastKM: number;
+  features: string[];
+} = {
+  make: "Toyota",
+  modal: "Coralla",
+  year: 2020,
+  lastKM: 15700,
+  features: ["Sunroof", "Airbag", "A/C"],
+};
+
+car.make = "Auidi";
+// car.make = false; //! error    -->      boolean değer ataması yapamayız.
+
+// car.lastKM = 12000; //! error      -->       Yukarıda bu değere readonly ataması yaptığımız için değişiklik yapamayız.
+
+type car2 = {
+  make: string;
+  modal: string;
+  year: number;
+  lastKM: number;
+};
+
+const newCar: car2 = {
+  make: "Toyota",
+  modal: "Coralla",
+  year: 2020,
+  lastKM: 15700,
+};
+
 

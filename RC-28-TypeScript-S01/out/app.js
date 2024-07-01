@@ -34,11 +34,6 @@ function increase() {
     f++;
 }
 increase();
-function endessLoop() {
-    while (true) {
-        console.log("Using Never Type");
-    }
-}
 let g = 100;
 g = "Union Type";
 console.log("*********************************");
@@ -52,3 +47,20 @@ function checkNumber(n) {
 }
 checkNumber(2);
 checkNumber("Type Narrowing");
+let h = 3;
+h = "Hello, Type Aliases";
+let k = "Hi There !";
+const car = {
+    make: "Toyota",
+    modal: "Coralla",
+    year: 2020,
+    lastKM: 15700,
+    features: ["Sunroof", "Airbag", "A/C"],
+};
+car.make = "Auidi";
+const newCar = {
+    make: "Toyota",
+    modal: "Coralla",
+    year: 2020,
+    lastKM: 15700,
+};
