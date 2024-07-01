@@ -139,4 +139,8 @@ function endessLoop(): never {
 }
 //! Bunu çağırdığımızda kodumuz ve browser sonsuz döngüye girer ve bilgisayarımızı kitler.
 
+//.. Union Type
 
+let g: string | number = 100;
+g = "Union Type";
+// g = true; //! error     ->      boolean değer tanımlaması yapmadık.

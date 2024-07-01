@@ -34,3 +34,10 @@ function increase() {
     f++;
 }
 increase();
+function endessLoop() {
+    while (true) {
+        console.log("Using Never Type");
+    }
+}
+let g = 100;
+g = "Union Type";
