@@ -295,3 +295,23 @@ console.log(greet("Sevim", 40));
 
 // add("merhaba", "43");
 // add(43, 2);
+
+//? Rest Parameters
+
+function greet01(msg: string, ...names: string[]): string {
+  return `${msg + " " + names.join(", ") + "!"}`;
+}
+
+console.log(greet01("Hello"));
+console.log(greet01("Hello", "Ciara"));
+console.log(greet01("Hello", "Ciara", "Ciomhie"));
+
+function topla(num1: number, ...numbers: number[]) {
+  let total = num1;
+  numbers.forEach((num) => (total += num));
+  console.log(total);
+}
+
+topla(5);
+topla(5, 6);
+topla(1, 2, 3, 4, 5, 6, 7, 8, 9, 10);
