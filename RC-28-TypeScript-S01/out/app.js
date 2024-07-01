@@ -24,3 +24,13 @@ d = false;
 let anyArray = [1, "Selam"];
 anyArray.push(true);
 let e = d;
+let notSure = 4;
+notSure = "Hello";
+console.log(notSure.length);
+console.log(notSure.length);
+let f = 100;
+function increase() {
+    console.log(f);
+    f++;
+}
+increase();

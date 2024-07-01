@@ -110,3 +110,24 @@ let anyArray: any[] = [1, "Selam"];
 anyArray.push(true);
 
 let e: boolean = d;
+
+//.. Unknown
+
+let notSure: unknown = 4;
+notSure = "Hello";
+// notSure.length //__ Bu şekilde yazamayız aşağıda sadece 120. satırda tanımlı olacak şekilde string ataması yaparız.
+console.log((notSure as string).length); //! alias yöntemi
+console.log((<string>notSure).length); //! generic yöntemi
+
+//.. Void (Return içermeyen fonksiyonların dönüş tipi)
+
+let f: number = 100;
+
+function increase(): void {
+  console.log(f);
+  f++;
+}
+
+increase();
+
+
