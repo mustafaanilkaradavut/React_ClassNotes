@@ -208,4 +208,12 @@ const newCar: car2 = {
   lastKM: 15700,
 };
 
+//.. String Literals
+
+type car3 = "Fiat" | "BMW" | 2000;
+
+let car4: car3 = "Fiat";
+let car5: car3 = "BMW";
+let car6: car3 = 2000;
+// let car6: car3 = "Auidi"; //! Error   -->   Auidi ataması yapamayız çünkü yukarıda Fiat veya BMW olarak atama yaptık.
 
