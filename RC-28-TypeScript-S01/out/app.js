@@ -73,3 +73,10 @@ const book1 = {
     book_name: "The Lord of The Rings",
     author_id: 1892,
 };
+function selamla(mesaj, isim) {
+    return `${mesaj + " " + isim}`;
+}
+console.log(selamla("Good morning", "Paye"));
+let multiply = (x, y) => {
+    return x * y;
+};

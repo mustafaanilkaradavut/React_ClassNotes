@@ -236,3 +236,22 @@ const book1: Product = {
   book_name: "The Lord of The Rings",
   author_id: 1892,
 };
+
+//.. Functions
+
+function selamla(mesaj: string, isim: string): string {
+  return `${mesaj + " " + isim}`;
+}
+
+console.log(selamla("Good morning", "Paye"));
+
+// selamla("Paye");
+// selamla("Paye", "Merhaba", "Anil");
+// selamla(123,"Anil")
+//! error    -->     Bunların hepsi error olur çünkü biz 2 veri tanımladık ve string. 2'den az/çok, string olmayan ifade kullanamayız.
+
+//? Arrow Functions
+
+let multiply = (x: number, y: number): number => {
+  return x * y;
+};
