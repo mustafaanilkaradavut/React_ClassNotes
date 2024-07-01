@@ -53,4 +53,7 @@ myTuple3 = [
 ];
 
 // myTuple3.push(["jane", 4]); //! It should be our format
-myTuple3.push([3, "Jane"]);
+// myTuple3.push([3, "Jane"]); //* okey
+// myTuple3.push(false); //! error because boolean değer.
+
+
