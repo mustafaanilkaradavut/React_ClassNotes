@@ -80,3 +80,26 @@ console.log(selamla("Good morning", "Paye"));
 let multiply = (x, y) => {
     return x * y;
 };
+function selamla2(mesaj, name) {
+    if (!name) {
+        name = "user";
+    }
+    return `${mesaj + " " + name}`;
+}
+console.log(selamla2("Good morning", "Anil"));
+console.log(selamla2("Good morning"));
+function greet(name, age) {
+    if (age !== undefined) {
+        return `Hello, my name is ${name} and I am ${age} years old`;
+    }
+    else {
+        return `Hello, my name is ${name}`;
+    }
+}
+console.log(greet("Sevim"));
+console.log(greet("Sevim", 40));
+function add(a, b) {
+    return a + b;
+}
+add("merhaba", "43");
+add(43, 2);

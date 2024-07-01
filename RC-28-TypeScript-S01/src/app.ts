@@ -255,3 +255,43 @@ console.log(selamla("Good morning", "Paye"));
 let multiply = (x: number, y: number): number => {
   return x * y;
 };
+
+//? Optional parameters
+
+// function selamla2(mesaj: string, name: string="user"): string {
+function selamla2(mesaj: string, name?: string): string {
+  if (!name) {
+    name = "user";
+  }
+  return `${mesaj + " " + name}`;
+}
+
+console.log(selamla2("Good morning", "Anil"));
+console.log(selamla2("Good morning"));
+
+//? Function - Overloading
+
+function greet(name: string): string;
+function greet(name: string, age?: number): string;
+
+function greet(name: string, age?: number): string {
+  if (age !== undefined) {
+    return `Hello, my name is ${name} and I am ${age} years old`;
+  } else {
+    return `Hello, my name is ${name}`;
+  }
+}
+
+console.log(greet("Sevim"));
+console.log(greet("Sevim", 40));
+// console.log(greet("Sevim", "40")); //! error    -->     Tanımlı olmayan bir string değer ataması.
+// console.log(greet("Sevim", 50, 55)); //! error    -->   2 değer tanımlı fakat biz 3 değer atıyoruz.
+
+// function add(a: string, b: string): string;
+// function add(a: number, b: number): number;
+// function add(a: any, b: any): any {
+//   return a + b;
+// }
+
+// add("merhaba", "43");
+// add(43, 2);
