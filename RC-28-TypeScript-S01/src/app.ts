@@ -99,3 +99,14 @@ enum StatusCodes {
 }
 
 console.log(StatusCodes.ServerError);
+
+//.. Any Type
+
+let d: any = 4;
+d = "Merhaba";
+d = false;
+
+let anyArray: any[] = [1, "Selam"];
+anyArray.push(true);
+
+let e: boolean = d;
