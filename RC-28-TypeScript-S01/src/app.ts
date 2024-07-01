@@ -144,3 +144,22 @@ function endessLoop(): never {
 let g: string | number = 100;
 g = "Union Type";
 // g = true; //! error     ->      boolean değer tanımlaması yapmadık.
+
+console.log("*********************************");
+
+//? -------------------------------------------------------------------------- */                                                                            */
+//? -------------------------------------------------------------------------- */
+
+//.. Type Narrowing
+
+function checkNumber(n: string | number): void {
+  if (typeof n == "number") {
+    console.log(n ** 2);
+  } else {
+    console.log(n.length);
+  }
+}
+
+checkNumber(2);
+checkNumber("Type Narrowing");
+

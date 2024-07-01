@@ -41,3 +41,14 @@ function endessLoop() {
 }
 let g = 100;
 g = "Union Type";
+console.log("*********************************");
+function checkNumber(n) {
+    if (typeof n == "number") {
+        console.log(Math.pow(n, 2));
+    }
+    else {
+        console.log(n.length);
+    }
+}
+checkNumber(2);
+checkNumber("Type Narrowing");
