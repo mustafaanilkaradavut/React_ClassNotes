@@ -217,3 +217,22 @@ let car5: car3 = "BMW";
 let car6: car3 = 2000;
 // let car6: car3 = "Auidi"; //! Error   -->   Auidi ataması yapamayız çünkü yukarıda Fiat veya BMW olarak atama yaptık.
 
+//.. Intersection
+
+type Book = {
+  book_id: number;
+  book_name: string;
+};
+type Author = {
+  author_id: number;
+  author_name: string;
+};
+
+type Product = Book & Author;
+
+const book1: Product = {
+  book_id: 1234,
+  author_name: "Tolkien",
+  book_name: "The Lord of The Rings",
+  author_id: 1892,
+};

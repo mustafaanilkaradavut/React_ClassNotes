@@ -64,3 +64,12 @@ const newCar = {
     year: 2020,
     lastKM: 15700,
 };
+let car4 = "Fiat";
+let car5 = "BMW";
+let car6 = 2000;
+const book1 = {
+    book_id: 1234,
+    author_name: "Tolkien",
+    book_name: "The Lord of The Rings",
+    author_id: 1892,
+};
