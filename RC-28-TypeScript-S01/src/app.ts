@@ -130,4 +130,13 @@ function increase(): void {
 
 increase();
 
+//.. Never (Hiç bir zaman geri dönüşü olmayacak)
+
+function endessLoop(): never {
+  while (true) {
+    console.log("Using Never Type");
+  }
+}
+//! Bunu çağırdığımızda kodumuz ve browser sonsuz döngüye girer ve bilgisayarımızı kitler.
+
 
