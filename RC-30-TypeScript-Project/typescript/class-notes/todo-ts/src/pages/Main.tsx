@@ -58,7 +58,7 @@ const Main = () => {
     <Container>
       <Header />
       <AddTodoComp addTodo={addTodo} />
-      <TodoList />
+      <TodoList todos={todos} />
       {/* <button onClick={() => setTodos([{ id: 5, isDone: false, task: "asd" }])}>
         Click
       </button> */}

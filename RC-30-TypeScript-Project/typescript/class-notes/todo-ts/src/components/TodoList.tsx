@@ -24,7 +24,7 @@ const TodoList: React.FC<ITodoList> = ({ todos }) => {
         justifyContent: "center",
         alignItems: "center",
         gap: "1rem",
-        mt: 1,
+        mt: 3,
       }}>
       <Grid
         item
@@ -42,14 +42,27 @@ const TodoList: React.FC<ITodoList> = ({ todos }) => {
         {progressTodos.length ? (
           progressTodos.map((todo) => <TodoListItem />)
         ) : (
-          <Typography color="error">No Progress Todos!</Typography>
+          <Typography color="error">No InProgress Todos!</Typography>
         )}
+      </Grid>
 
+      <Grid
+        item
+        xs={12}
+        sm={8}
+        md={6}
+        sx={{
+          minHeight: "350px",
+          maxHeight: "350px",
+          overflow: "auto",
+          border: "1px solid green",
+          borderRadius: "1rem",
+        }}>
         <Typography>Completed Todos</Typography>
         {completedTodos.length ? (
           completedTodos.map((todo) => <TodoListItem />)
         ) : (
-          <Typography color="success">Completed Todos!</Typography>
+          <Typography color="error">No Completed Todos!</Typography>
         )}
       </Grid>
     </Grid>
