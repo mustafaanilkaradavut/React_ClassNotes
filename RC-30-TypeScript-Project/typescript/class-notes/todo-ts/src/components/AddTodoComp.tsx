@@ -1,8 +1,16 @@
 import { Box, Button, TextField } from "@mui/material";
 import SaveIcon from "@mui/icons-material/Save";
-import React from "react";
+import React, { useState } from "react";
 
 const AddTodoComp = () => {
+  const [task, setTask] = useState(""); //? Type Inference
+  // const [task, setTask] = useState(""); //__ Her zaman type belirtmemize gerek yok. Typescript type inference özelliği sayesinde inital değerine göre otomatik type ataması yapıyor.
+
+  const handleClick = () => {
+    console.log(task);
+    setTask(""); //__ Console yazdırdıktan sonra inputu silmek için.
+  };
+
   return (
     <Box
       sx={{
@@ -17,13 +25,16 @@ const AddTodoComp = () => {
         color="success"
         sx={{ minWidth: { xs: "100%", sm: "50%" }, height: "50px", m: 1 }}
         variant="outlined"
+        value={task}
+        onChange={(e) => setTask(e.target.value)}
         inputProps={{ maxLength: 40 }}
       />
       <Button
         variant="contained"
         color="success"
         sx={{ minWidth: { xs: "100%", sm: "15%" }, height: "55px", m: 1 }}
-        endIcon={<SaveIcon />}>
+        endIcon={<SaveIcon />}
+        onClick={handleClick}>
         Save Todo
       </Button>
     </Box>

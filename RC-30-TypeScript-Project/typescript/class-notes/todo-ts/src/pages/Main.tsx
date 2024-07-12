@@ -2,6 +2,7 @@ import { Container } from "@mui/material";
 import Header from "../components/Header";
 import { useEffect, useState } from "react";
 import axios from "axios";
+import AddTodoComp from "../components/AddTodoComp";
 
 interface ITodoType {
   task: string;
@@ -35,6 +36,7 @@ const Main = () => {
   return (
     <Container>
       <Header />
+      <AddTodoComp />
       {/* <button onClick={() => setTodos([{ id: 5, isDone: false, task: "asd" }])}>
         Click
       </button> */}
