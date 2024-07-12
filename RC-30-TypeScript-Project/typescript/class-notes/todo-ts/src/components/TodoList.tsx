@@ -1,8 +1,8 @@
 import { Grid, Typography } from "@mui/material";
-import { TodoListItem } from "./TodoListItem";
+import TodoListItem from "./TodoListItem";
 import React from "react";
 
-interface ITodoList {
+interface ITodoList extends ITodoListFn {
   todos: ITodoType[];
 }
 
@@ -13,7 +13,7 @@ interface ITodoList {
 //..  Ancan React.FC kullanmak zorunlu değildir. Fonksiyonel bir bileşen, sadece fonksiyon olarakda tanımlanabilir ve React.FC kullanmadan da props alabilir ve JSX döndürebilir.
 //__ FC, "FunctionComponent" kelimelerinin kısatlmasadır.
 
-const TodoList: React.FC<ITodoList> = ({ todos }) => {
+const TodoList: React.FC<ITodoList> = ({ todos, deleteTodo, toggleTodo }) => {
   const progressTodos = todos.filter((todo) => !todo.isDone);
   const completedTodos = todos.filter((todo) => todo.isDone);
   return (
@@ -23,50 +23,82 @@ const TodoList: React.FC<ITodoList> = ({ todos }) => {
         display: "flex",
         justifyContent: "center",
         alignItems: "center",
-        gap: "1rem",
+        gap: "0.5rem",
         mt: 3,
       }}>
       <Grid
         item
         xs={12}
         sm={8}
-        md={6}
+        md={5}
+        position={"relative"}
+        className="myscrool scrool-progress"
         sx={{
           minHeight: "350px",
           maxHeight: "350px",
           overflow: "auto",
           border: "1px solid purple",
-          borderRadius: "1rem",
+          borderRadius: "0.5rem",
         }}>
-        <Typography>Inprogress Todos</Typography>
+        <Typography
+          className="title"
+          color="secondary"
+          align="center"
+          variant="h4">
+          InProgress Todos
+        </Typography>
         {progressTodos.length ? (
-          progressTodos.map((todo) => <TodoListItem />)
+          progressTodos.map((todo) => (
+            <TodoListItem
+              deleteTodo={deleteTodo}
+              toggleTodo={toggleTodo}
+              todo={todo}
+              key={todo.id}
+            />
+          ))
         ) : (
-          <Typography color="error">No InProgress Todos!</Typography>
+          <Typography color="error" mt={3}>
+            No InProgress Todos!
+          </Typography>
         )}
       </Grid>
-
       <Grid
         item
         xs={12}
         sm={8}
-        md={6}
+        md={5}
+        position={"relative"}
+        className="myscrool scrool-completed"
         sx={{
           minHeight: "350px",
           maxHeight: "350px",
           overflow: "auto",
           border: "1px solid green",
-          borderRadius: "1rem",
+          borderRadius: "0.5rem",
         }}>
-        <Typography>Completed Todos</Typography>
+        <Typography
+          className="title"
+          sx={{ color: "green" }}
+          align="center"
+          variant="h4">
+          Completed Todos
+        </Typography>
         {completedTodos.length ? (
-          completedTodos.map((todo) => <TodoListItem />)
+          completedTodos.map((todo) => (
+            <TodoListItem
+              deleteTodo={deleteTodo}
+              toggleTodo={toggleTodo}
+              todo={todo}
+              key={todo.id}
+            />
+          ))
         ) : (
-          <Typography color="error">No Completed Todos!</Typography>
+          <Typography color="error" mt={3}>
+            No Completed Todos!
+          </Typography>
         )}
       </Grid>
     </Grid>
   );
 };
-
 export default TodoList;
