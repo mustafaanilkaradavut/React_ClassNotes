@@ -1,6 +1,7 @@
 import { Container } from "@mui/material";
-import { Header } from "../components/Header";
-import { useState } from "react";
+import Header from "../components/Header";
+import { useEffect, useState } from "react";
+import axios from "axios";
 
 interface ITodoType {
   task: string;
@@ -10,16 +11,34 @@ interface ITodoType {
 }
 // interface yazarken baş harfi best practice olarak büyük "I" ile başlar.
 
+const url = "https://668968c80ea28ca88b87e5c6.mockapi.io/api/todos/todos";
+
 const Main = () => {
   //   const [todos, setTodos] = useState([] as ITodoType[]); //__ 1. Yol
   //   const { todos, setTodos } = useState<Array<ITodoType>>([]); //__ 2. Yol
   const [todos, setTodos] = useState<ITodoType[]>([]); //.. 3. Yol ve En Yaygın Kullanımı.
+  console.log(todos);
+
+  const getTodos = async () => {
+    try {
+      const { data } = await axios<ITodoType[]>(url);
+      setTodos(data);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  useEffect(() => {
+    getTodos();
+  }, []);
+
   return (
     <Container>
       <Header />
-      <button onClick={() => setTodos([{ id: 5, isDone: false, task: "asd" }])}>
+      {/* <button onClick={() => setTodos([{ id: 5, isDone: false, task: "asd" }])}>
         Click
-      </button>
+      </button> */}
+      {/*       EXAMPLE         */}
     </Container>
   );
 };

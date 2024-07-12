@@ -1,5 +1,13 @@
+import { Typography } from "@mui/material";
 import React from "react";
 
-export const Header = () => {
-  return <div>Header</div>;
+const Header = () => {
+  return (
+    <Typography color="error" variant="h2" component="h1" align="center">
+      {/* variant aldığı değer component ise DOM'a bastığı kısımdır. */}
+      Todo App with Typescript
+    </Typography>
+  );
 };
+
+export default Header;
