@@ -1,6 +1,7 @@
 import { Grid, Typography } from "@mui/material";
 import TodoListItem from "./TodoListItem";
 import React from "react";
+import "./style.css";
 
 interface ITodoList extends ITodoListFn {
   todos: ITodoType[];
