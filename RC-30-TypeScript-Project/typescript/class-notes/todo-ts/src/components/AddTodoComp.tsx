@@ -2,12 +2,17 @@ import { Box, Button, TextField } from "@mui/material";
 import SaveIcon from "@mui/icons-material/Save";
 import React, { useState } from "react";
 
-const AddTodoComp = () => {
+const AddTodoComp = ({
+  addTodo,
+}: {
+  addTodo: (task: string) => Promise<void>;
+}) => {
   const [task, setTask] = useState(""); //? Type Inference
   // const [task, setTask] = useState(""); //__ Her zaman type belirtmemize gerek yok. Typescript type inference özelliği sayesinde inital değerine göre otomatik type ataması yapıyor.
 
   const handleClick = () => {
     console.log(task);
+    addTodo(task);
     setTask(""); //__ Console yazdırdıktan sonra inputu silmek için.
   };
 

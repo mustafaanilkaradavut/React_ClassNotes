@@ -29,6 +29,26 @@ const Main = () => {
     }
   };
 
+  //..        1.YOL
+  // const addTodo = async (task: string) => {
+  //   try {
+  //   } catch (error) {
+  //     console.log(error);
+  //   }
+  // };
+
+  //..      2.YOL
+  type Addfn = (task: string) => Promise<void>;
+
+  const addTodo: Addfn = async (task) => {
+    try {
+      await axios.post(url, { task, isDone: false });
+      getTodos();
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   useEffect(() => {
     getTodos();
   }, []);
@@ -36,7 +56,7 @@ const Main = () => {
   return (
     <Container>
       <Header />
-      <AddTodoComp />
+      <AddTodoComp addTodo={addTodo} />
       {/* <button onClick={() => setTodos([{ id: 5, isDone: false, task: "asd" }])}>
         Click
       </button> */}
