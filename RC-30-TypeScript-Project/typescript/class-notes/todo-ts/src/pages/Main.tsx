@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import AddTodoComp from "../components/AddTodoComp";
 import TodoList from "../components/TodoList";
+import { SweetIcon, notify, SweetPosition } from "../helper/sweetAlert";
 
 interface ITodoType {
   task: string;
@@ -44,18 +45,22 @@ const Main = () => {
   const addTodo: AddFn = async (task) => {
     try {
       await axios.post(url, { task, isDone: false });
+      notify("Todo created!", SweetIcon.SUCCESS, SweetPosition.Center);
       getTodos();
     } catch (error) {
       console.log(error);
+      notify("Todo not created!", SweetIcon.ERROR, SweetPosition.BottomEnd);
     }
   };
 
   const toggleTodo: ToggleFn = async (todo) => {
     try {
       await axios.put(`${url}/${todo.id}`, { ...todo, isDone: !todo.isDone });
+      notify("Todo updated!", SweetIcon.SUCCESS, SweetPosition.Center);
       getTodos();
     } catch (error) {
       console.log(error);
+      notify("Todo not updated!", SweetIcon.ERROR, SweetPosition.TopStart);
     } finally {
       getTodos();
     }
@@ -64,8 +69,10 @@ const Main = () => {
   const deleteTodo: DeleteFn = async (id) => {
     try {
       await axios.delete(`${url}/${id}`);
+      notify("Todo deleted!", SweetIcon.SUCCESS, SweetPosition.Center);
     } catch (error) {
       console.log(error);
+      notify("Todo not deleted!", SweetIcon.ERROR, SweetPosition.TopStart);
     } finally {
       getTodos();
     }

@@ -18,11 +18,11 @@ const TodoListItem: FC<ITodoListItem> = ({ todo, deleteTodo, toggleTodo }) => {
       disableGutters
       sx={{ padding: "1rem", cursor: "pointer" }}
       secondaryAction={
-        <IconButton aria-label="comment">
-          <DeleteOutline
-            sx={{ "&:hover": { color: "red" } }}
-            onClick={() => deleteTodo(todo.id)}
-          />
+        <IconButton
+          aria-label="delete todo"
+          sx={{ "&:hover": { color: "red" } }}
+          onClick={() => deleteTodo(todo.id)}>
+          <DeleteOutline />
         </IconButton>
       }>
       <ListItemText
