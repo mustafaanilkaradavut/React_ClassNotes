@@ -34,7 +34,9 @@ const AddTodoComp = () => {
         color="success"
         sx={{ minWidth: { xs: "100%", sm: "15%" }, height: "55px", m: 1 }}
         endIcon={<SaveIcon />}
-        onClick={handleClick}>
+        onClick={handleClick}
+        disabled={!task.trim()}>
+        {/* task.trim'de trim ekleme sebebimiz boşlukları dahil etmemesi ve save tuşunun yazı yok veya boşluk varken çalışmaması. */}
         Save Todo
       </Button>
     </Box>
