@@ -1,6 +1,6 @@
 import { Box, Button, TextField } from "@mui/material";
 import SaveIcon from "@mui/icons-material/Save";
-import React, { useState } from "react";
+import { useState } from "react";
 
 // ..      1.YOL
 
@@ -53,8 +53,8 @@ import React, { useState } from "react";
 //..      2.YOL
 
 interface IAddTodoComp {
-  addTodo: (task: string) => Promise<void>;
-  // addTodo: AddFn;
+  // addTodo: (task: string) => Promise<void>;
+  addTodo: AddFn;
 }
 
 const AddTodoComp = ({ addTodo }: IAddTodoComp) => {

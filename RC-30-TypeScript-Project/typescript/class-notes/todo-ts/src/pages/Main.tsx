@@ -3,6 +3,7 @@ import Header from "../components/Header";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import AddTodoComp from "../components/AddTodoComp";
+import TodoList from "../components/TodoList";
 
 interface ITodoType {
   task: string;
@@ -38,9 +39,9 @@ const Main = () => {
   // };
 
   //..      2.YOL
-  type Addfn = (task: string) => Promise<void>;
+  // type AddFn = (task: string) => Promise<void>;
 
-  const addTodo: Addfn = async (task) => {
+  const addTodo: AddFn = async (task) => {
     try {
       await axios.post(url, { task, isDone: false });
       getTodos();
@@ -57,6 +58,7 @@ const Main = () => {
     <Container>
       <Header />
       <AddTodoComp addTodo={addTodo} />
+      <TodoList />
       {/* <button onClick={() => setTodos([{ id: 5, isDone: false, task: "asd" }])}>
         Click
       </button> */}
